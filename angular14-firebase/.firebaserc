@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular14-firebase": {
+      "hosting": {
+        "angular14-firebase": [
+          "angular14-firebase"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular14-firebase"
+  }
+}
