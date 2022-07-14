@@ -1,0 +1,42 @@
+<div class="body">
+  <div class="login animate__animated animate__bounceInDown">
+      <mat-card>
+          <mat-card-title class="title">Login</mat-card-title>
+          <img class="form img animate__animated animate__flipInX animate__delay-1s"
+              src="../../../assets/img/support _ girl.png" alt="User img" width="200px">
+          <form [formGroup]="loginForm" (submit)="login()">
+              <mat-form-field appearance="outline" class="form">
+                  <mat-label>Email</mat-label>
+                  <input autofocus matInput placeholder="user@yourdomian.com" formControlName="email"
+                      autocomplete="off">
+                  <mat-icon matSuffix color="primary">email</mat-icon>
+                  <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
+                  <mat-error
+                      *ngIf="!loginForm.get('email')?.hasError('required') && loginForm.get('email')?.hasError('email')">
+                      Please provide a valid email</mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" class="form">
+                  <mat-label>Password</mat-label>
+                  <input formControlName="password" autocomplete="off" matInput [type]="hide ? 'password' : 'text'"
+                      placeholder="Password">
+                  <button mat-icon-button matSuffix color="primary" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                      [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                  <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
+                  <mat-error
+                      *ngIf="!loginForm.get('password')?.hasError('required') && (!loginForm.get('password')?.hasError('maxlength') && loginForm.get('password')?.hasError('minlength'))">
+                      Password must be at least 6 characters long</mat-error>
+                  <mat-error
+                      *ngIf="!loginForm.get('password')?.hasError('required') && (!loginForm.get('password')?.hasError('minlength') && loginForm.get('password')?.hasError('maxlength'))">
+                      Password must be a maximum of 12 characters</mat-error>
+              </mat-form-field>
+
+              <button type="submit"
+                  [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
+                  [disabled]="loginForm.invalid" class="form button" mat-raised-button color="primary">Login</button>
+          </form>
+      </mat-card>
+  </div>
+</div>
