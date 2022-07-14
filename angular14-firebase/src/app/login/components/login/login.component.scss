@@ -1,0 +1,54 @@
+.body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.title {
+  margin-top: 25px !important;
+}
+
+.form {
+  width: 80%;
+  margin-top: 15px;
+}
+
+.img {
+  width: 200px;
+}
+
+.button {
+  height: 45px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 498px) {
+  .form {
+      width: 100%;
+  }
+
+  .img {
+      width: 200px;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .login {
+      max-width: 800px;
+  }
+
+  .form {
+      width: 80%;
+  }
+
+  .img {
+      width: 200px;
+  }
+}
