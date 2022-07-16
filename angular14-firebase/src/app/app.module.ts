@@ -11,6 +11,9 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { LoginComponent } from './login/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared/shared.module';
+import { AuthService } from './services/auth.service';
+
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { SharedModule } from './shared/shared/shared.module';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
