@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-user',
@@ -16,6 +16,7 @@ export class CreateUserComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private _authService: AuthService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
@@ -26,7 +27,6 @@ export class CreateUserComponent implements OnInit {
 
   createLoginForm() {
     this.userForm = this.fb.group({
-      login: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -40,9 +40,10 @@ export class CreateUserComponent implements OnInit {
   }
 
   save() {
-    let loginForm = {} as any;
-    loginForm = this.userForm.getRawValue();
-    console.log(loginForm);
+    const userForm : any = this.userForm.getRawValue();
+    console.log(userForm);
+    this._authService.createUser(userForm);
+
     //this.router.navigate(['/home'])
   }
 

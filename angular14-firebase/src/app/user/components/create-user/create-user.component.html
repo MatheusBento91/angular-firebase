@@ -3,13 +3,6 @@
       <mat-card-title class="title"> Create user</mat-card-title>
       <form [formGroup]="userForm" (submit)="save()">
           <mat-form-field appearance="outline">
-              <mat-label>Login</mat-label>
-              <input matInput formControlName="login" placeholder="Login">
-              <mat-icon matSuffix color="primary">contacts</mat-icon>
-              <mat-error *ngIf="userForm.get('login')?.hasError('required')">Login is required</mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
               <input matInput formControlName="email" placeholder="Email">
               <mat-icon matSuffix color="primary">email</mat-icon>

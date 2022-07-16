@@ -19,7 +19,7 @@ export class LocalStorageUtils {
   }
 
   public saveUserToken(token: string) {
-      localStorage.setItem('devio', token);
+      localStorage.setItem('token', token);
   }
 
   public saveUser(user: string) {
