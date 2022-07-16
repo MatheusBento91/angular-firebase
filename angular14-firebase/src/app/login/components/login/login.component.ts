@@ -30,11 +30,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let loginForm  = { } as ILogin;
-    loginForm = this.loginForm.getRawValue();
-    console.log(loginForm);
-    this.localStorageUtils.saveUser(loginForm as any);
-    this.router.navigate(['/home'])
+    const requestLogin : ILogin = Object.assign( {}, this.loginForm.getRawValue());
+    this.localStorageUtils.saveUser(requestLogin as any);
+    this.router.navigate(['/home']);
   }
 
 }

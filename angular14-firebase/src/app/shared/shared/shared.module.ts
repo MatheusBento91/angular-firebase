@@ -10,7 +10,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -26,6 +32,12 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatRippleModule
   ],
   exports: [
     RouterModule,
@@ -38,6 +50,12 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
-  ]
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatRippleModule
+  ],
 })
-export class SharedModule { }
+export class SharedModule {}

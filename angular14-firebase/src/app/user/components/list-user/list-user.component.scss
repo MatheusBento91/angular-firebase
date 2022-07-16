@@ -1,0 +1,51 @@
+.container {
+  margin: 35px 50px 35px 35px;
+}
+
+table {
+  width: 100%;
+  height: 100% !important;
+}
+
+.create-user {
+  display: flex;
+  justify-content: end;
+}
+
+.btn {
+  width: 250px;
+  height: 45px;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-row:hover {
+  background-color: #E8EAF6;
+  cursor: pointer;
+}
+
+td, th {
+  width: 25%;
+}
+
+@media only screen and (max-width: 820px) {
+  .container {
+    margin: 15px 5px 0px 5px;
+    height: 100%;
+  }
+
+  ::ng-deep .ng-scroll-content {
+    height: 100% !important;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .mat-elevation-z8 {
+    height: 80%;
+  }
+}
