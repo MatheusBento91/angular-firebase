@@ -14,11 +14,15 @@ import { SharedModule } from './shared/shared/shared.module';
 import { AuthService } from './services/auth.service';
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    AccessDeniedComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
