@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageUtils } from 'src/app/utils/localstorage';
 import { ILogin } from '../../models/ILogin';
+import { ToastrService } from 'ngx-toastr';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private _authSerivce: AuthService
+    private _authSerivce: AuthService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -48,16 +51,18 @@ export class LoginComponent implements OnInit {
     this._authSerivce.login(requestLogin).then(
       (response) => {
         if (response) {
-          this.localStorageUtils.saveUser(response.user.multiFactor.user.email);
-          this.localStorageUtils.saveUserToken(
-            response.user.multiFactor.user.accessToken
-          );
+          const user = response.user.multiFactor.user;
+
+          this.localStorageUtils.saveUser(user.email);
+          this.localStorageUtils.saveUserToken(user.accessToken);
+
+          this.toastr.success('Login successfully!', 'Sucess!');
           this.router.navigate(['/home']);
         }
-      },
-      (error) => {
-        console.log(error);
       }
-    );
+    ).catch(error => {
+      this.toastr.error('Email or password is invalid!', 'Invalid data!');
+      throw new Error(error);
+    });
   }
 }
