@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userSerivce: UserService) { }
 
   ngOnInit(): void {
+    console.log("testedsadsa");
+
+    const user = this.userSerivce.list().subscribe( (data) => {
+      console.log(data);
+    });
   }
 
 }
