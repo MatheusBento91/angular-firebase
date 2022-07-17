@@ -17,6 +17,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,10 @@ import { NotFoundComponent } from './shared/components/not-found/not-found.compo
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      easeTime: 500,
+      progressAnimation: 'decreasing',
+    }),
     SharedModule
   ],
   providers: [
