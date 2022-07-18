@@ -1,0 +1,36 @@
+<mat-card>
+  <div class="container">
+      <mat-card-title class="title"> Create admin</mat-card-title>
+      <form [formGroup]="adminForm" (submit)="save()">
+          <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Email">
+              <mat-icon matSuffix color="primary">email</mat-icon>
+              <mat-error *ngIf="adminForm.get('email')?.hasError('required')">Email is required</mat-error>
+              <mat-error
+                  *ngIf="!adminForm.get('email')?.hasError('required') && adminForm.get('email')?.hasError('email')">
+                  Please provide a valid email</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
+              <button type="button" mat-icon-button matSuffix color="primary" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error *ngIf="adminForm.get('password')?.hasError('required')">Password is required</mat-error>
+              <mat-error
+                  *ngIf="!adminForm.get('password')?.hasError('required') && (!adminForm.get('password')?.hasError('maxlength') && adminForm.get('password')?.hasError('minlength'))">
+                  Password must be at least 6 characters long</mat-error>
+              <mat-error
+                  *ngIf="!adminForm.get('password')?.hasError('required') && (!adminForm.get('password')?.hasError('minlength') && adminForm.get('password')?.hasError('maxlength'))">
+                  Password must be a maximum of 12 characters</mat-error>
+          </mat-form-field>
+
+          <button class="btn" type="submit"
+              [ngClass]="adminForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
+              [disabled]="adminForm.invalid" mat-raised-button color="primary"> Create </button>
+      </form>
+  </div>
+</mat-card>
