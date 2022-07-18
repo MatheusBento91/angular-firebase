@@ -6,8 +6,11 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 export interface UserData {
-  Name: string;
-  Email: string;
+  name: string;
+  lastName: string;
+  email: string;
+  phoneNumber: string;
+  salaryExpectation: number;
 }
 
 @Component({
@@ -47,6 +50,6 @@ export class ListUserComponent implements OnInit {
   }
 
   editUser(user: any) {
-    this.router.navigate([`home/user/edit-user/${user.Id}`]);
+    this.router.navigate([`home/user/edit-user/${user.id}`]);
   }
 }
