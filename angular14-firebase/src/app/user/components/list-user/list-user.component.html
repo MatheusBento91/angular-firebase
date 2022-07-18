@@ -13,27 +13,27 @@
 
       <ng-container matColumnDef="Name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
 
       <ng-container matColumnDef="LastName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.LastName}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let row"> {{row.Email}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
       </ng-container>
 
       <ng-container matColumnDef="PhoneNumber">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
-        <td mat-cell *matCellDef="let row"> {{row.PhoneNumber}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
       </ng-container>
 
       <ng-container matColumnDef="SalaryExpectation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary Expectation </th>
-        <td mat-cell *matCellDef="let row"> {{row.SalaryExpectation}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.salaryExpectation}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

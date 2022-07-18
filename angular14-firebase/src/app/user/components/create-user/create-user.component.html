@@ -1,36 +1,54 @@
 <mat-card>
   <div class="container">
-      <mat-card-title class="title"> Create user</mat-card-title>
-      <form [formGroup]="userForm" (submit)="save()">
-          <mat-form-field appearance="outline">
-              <mat-label>Email</mat-label>
-              <input matInput formControlName="email" placeholder="Email">
-              <mat-icon matSuffix color="primary">email</mat-icon>
-              <mat-error *ngIf="userForm.get('email')?.hasError('required')">Email is required</mat-error>
-              <mat-error
-                  *ngIf="!userForm.get('email')?.hasError('required') && userForm.get('email')?.hasError('email')">
-                  Please provide a valid email</mat-error>
-          </mat-form-field>
+    <mat-card-title class="title"> Create user</mat-card-title>
+    <form [formGroup]="userForm" (submit)="save()">
 
-          <mat-form-field appearance="outline">
-              <mat-label>Password</mat-label>
-              <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password">
-              <button type="button" mat-icon-button matSuffix color="primary" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                  [attr.aria-pressed]="hide">
-                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-              <mat-error *ngIf="userForm.get('password')?.hasError('required')">Password is required</mat-error>
-              <mat-error
-                  *ngIf="!userForm.get('password')?.hasError('required') && (!userForm.get('password')?.hasError('maxlength') && userForm.get('password')?.hasError('minlength'))">
-                  Password must be at least 6 characters long</mat-error>
-              <mat-error
-                  *ngIf="!userForm.get('password')?.hasError('required') && (!userForm.get('password')?.hasError('minlength') && userForm.get('password')?.hasError('maxlength'))">
-                  Password must be a maximum of 12 characters</mat-error>
-          </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Name">
+        <mat-icon matSuffix color="primary">person</mat-icon>
+        <mat-error *ngIf="userForm.get('name')?.hasError('required')">Name is required</mat-error>
+        <mat-error *ngIf="!userForm.get('name')?.hasError('required') && userForm.get('name')?.hasError('minlength')">
+          Name must be at least 2 characters long</mat-error>
+      </mat-form-field>
 
-          <button class="btn" type="submit"
-              [ngClass]="userForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-              [disabled]="userForm.invalid" mat-raised-button color="primary"> Create </button>
-      </form>
+      <mat-form-field appearance="outline">
+        <mat-label>Last name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Last name">
+        <mat-icon matSuffix color="primary">person</mat-icon>
+        <mat-error *ngIf="userForm.get('lastName')?.hasError('required')">Last name is required</mat-error>
+        <mat-error
+          *ngIf="!userForm.get('lastName')?.hasError('required') && userForm.get('lastName')?.hasError('minlength')">
+          Last name must be at least 2 characters long</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Email">
+        <mat-icon matSuffix color="primary">email</mat-icon>
+        <mat-error *ngIf="userForm.get('email')?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="!userForm.get('email')?.hasError('required') && userForm.get('email')?.hasError('email')">
+          Please provide a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phoneNumber" placeholder="Phone Number">
+        <mat-icon matSuffix color="primary">settings_cell</mat-icon>
+        <mat-error *ngIf="userForm.get('phoneNumber')?.hasError('required')">Phone Number is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Salary expectation</mat-label>
+        <input matInput type="number" formControlName="salaryExpectation" placeholder="Salary expectation">
+        <mat-icon matSuffix color="primary">attach_money</mat-icon>
+        <mat-error *ngIf="userForm.get('salaryExpectation')?.hasError('required')">Salary expectation is required
+        </mat-error>
+      </mat-form-field>
+
+      <button class="btn" type="submit"
+        [ngClass]="userForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
+        [disabled]="userForm.invalid" mat-raised-button color="primary"> Create </button>
+    </form>
   </div>
 </mat-card>
