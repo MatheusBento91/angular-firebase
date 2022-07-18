@@ -10,8 +10,13 @@ const listSideNav = [
     RouterLink: '/home',
   },
   {
-    Name: 'User',
+    Name: 'Admin',
     Icon: 'account_circle',
+    RouterLink: 'admin',
+  },
+  {
+    Name: 'Users',
+    Icon: 'devices',
     RouterLink: '/home/user',
   },
   {
@@ -26,12 +31,13 @@ const listSideNav = [
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnDestroy  {
+export class HomeComponent implements OnDestroy, OnInit  {
 
   listSideNav = listSideNav;
   mobileQuery: MediaQueryList;
 
   localStorageUtils = new LocalStorageUtils();
+  adminEmail: string = "";
 
   private _mobileQueryListener: () => void;
 
@@ -41,6 +47,10 @@ export class HomeComponent implements OnDestroy  {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+  }
+
+  ngOnInit(): void {
+    this.adminEmail = this.localStorageUtils.getUser();
   }
 
   ngOnDestroy(): void {

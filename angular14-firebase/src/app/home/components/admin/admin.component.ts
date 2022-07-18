@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-create-user',
-  templateUrl: './create-user.component.html',
-  styleUrls: ['./create-user.component.scss']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.scss']
 })
-export class CreateUserComponent implements OnInit {
+export class AdminComponent implements OnInit {
 
   hide = true;
-  userForm!: FormGroup;
+  adminForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private _authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   createLoginForm() {
-    this.userForm = this.fb.group({
+    this.adminForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -39,11 +40,18 @@ export class CreateUserComponent implements OnInit {
   }
 
   save() {
-    const userForm : any = this.userForm.getRawValue();
-    console.log(userForm);
-    this._authService.createUser(userForm);
+    const userForm : any = this.adminForm.getRawValue();
+    this._authService.createUser(userForm).then( () => {
+      this.toastr.success('Create admin successfully!', 'Sucess!');
+      this.router.navigate(['/home']);
+    },
+    (error) => {
+      this.toastr.error('Email or password is invalid!', 'Invalid data!');
+      throw new Error(error);
+    });
 
     //this.router.navigate(['/home'])
   }
+
 
 }
