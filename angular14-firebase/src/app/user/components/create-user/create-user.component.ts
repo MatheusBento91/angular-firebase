@@ -21,34 +21,31 @@ export class CreateUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.createLoginForm();
+    this.createUserForm();
   }
 
-  createLoginForm() {
+  createUserForm() {
     this.userForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required]],
-      salaryExpectation: ['', [Validators.required]]
+      salaryExpectation: ['', [Validators.required]],
     });
   }
 
   save() {
     const userForm: any = this.userForm.getRawValue();
-    console.log(userForm);
 
-    this._userService.create(userForm).then( (response) => {
-      console.log(response);
-      if (response) {
+    this._userService.create(userForm).then(
+      () => {
         this.toastr.success('User create successfully!', 'Sucess!');
         this.router.navigate(['/home/user']);
+      },
+      (error) => {
+        this.toastr.error('Error for create user', 'Error!');
+        throw new Error(error);
       }
-    },
-    (error) => {
-      this.toastr.error('Error for create user', 'Error!');
-      throw new Error(error);
-    });
-
+    );
   }
 }

@@ -1,0 +1,68 @@
+mat-card {
+  height: 100%;
+  margin: 50px 100px 100px 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+.title {
+  margin-top: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+  width: 65%;
+}
+
+.btn {
+  width: 250px;
+  height: 45px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 498px) {
+    mat-card {
+        height: 100%;
+        margin: unset;
+      }
+
+      .title {
+        margin-top: 7rem;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      form {
+        width: 100%;
+      }
+}
+
+@media only screen and (min-width: 498px) and (max-width: 960px) {
+    mat-card {
+        height: 100%;
+        margin: unset;
+      }
+
+      .title {
+        margin-top: 7rem;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      form {
+        width: 70%;
+      }
+}
