@@ -1,25 +1,37 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  AngularFirestoreDocument,
+} from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   private usersCollections!: AngularFirestoreCollection<any>;
   user!: Observable<any>;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {}
 
-  list() : Observable<any> {
+  list(): Observable<any> {
     return this.afs.collection<any>('Users').valueChanges({ idField: 'id' });
   }
 
-  create(user: any) : Promise<any>{
+  create(user: any): Promise<any> {
     const usersRef = this.afs.collection('Users');
     return usersRef.add({ ...user });
   }
 
+  getById(id: string): Observable<any> {
+    return this.afs.collection<any>('Users').doc(id).valueChanges();
+  }
+
+  update(id: string, user: any) : Promise<any> {
+    const tutorialsRef = this.afs.collection<any>('Users');
+
+    console.log(id)
+    return this.afs.collection<any>('Users').doc(id).set({ ...user});
+  }
 }
