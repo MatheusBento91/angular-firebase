@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-delete-user',
   templateUrl: './delete-user.component.html',
   styleUrls: ['./delete-user.component.scss']
 })
-export class DeleteUserComponent implements OnInit {
+export class DeleteUserComponent {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+  public dialogRef: MatDialogRef<DeleteUserComponent>,
+  private _userService: UserService) { }
 
-  ngOnInit(): void {
+  onClick(): void {
+    this._userService.delete(this.data.id);
+    this.dialogRef.close(true);
   }
 
 }

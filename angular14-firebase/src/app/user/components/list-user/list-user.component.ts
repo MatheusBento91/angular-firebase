@@ -1,9 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../../services/user.service';
+import { DeleteUserComponent } from '../delete-user/delete-user.component';
 
 export interface UserData {
   name: string;
@@ -19,17 +22,28 @@ export interface UserData {
   styleUrls: ['./list-user.component.scss'],
 })
 export class ListUserComponent implements OnInit {
-  displayedColumns: string[] = ['Name', 'LastName', 'Email', 'PhoneNumber', 'SalaryExpectation'];
+  displayedColumns: string[] = [
+    'name',
+    'lastName',
+    'email',
+    'phoneNumber',
+    'salaryExpectation',
+    'actions',
+  ];
   dataSource!: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    public dialog: MatDialog,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.userService.list().subscribe((data) => {
-      console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -51,5 +65,17 @@ export class ListUserComponent implements OnInit {
 
   editUser(user: any) {
     this.router.navigate([`home/user/edit-user/${user.id}`]);
+  }
+
+  deleteUser(user: any) {
+    const dialogRef = this.dialog.open(DeleteUserComponent, {
+      data: user,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.toastr.success('User deleted successfully!', 'Sucess!');
+      }
+    });
   }
 }

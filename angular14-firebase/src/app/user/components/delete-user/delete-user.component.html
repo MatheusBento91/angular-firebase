@@ -1,1 +1,8 @@
-<p>delete-user works!</p>
+<h1 mat-dialog-title>Delete user</h1>
+<div mat-dialog-content>
+  Would you like to delete the user <b> {{ data.email }} </b> ?
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="onClick()">Ok</button>
+</div>
