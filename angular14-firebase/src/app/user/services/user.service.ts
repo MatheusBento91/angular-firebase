@@ -29,9 +29,10 @@ export class UserService {
   }
 
   update(id: string, user: any) : Promise<any> {
-    const tutorialsRef = this.afs.collection<any>('Users');
-
-    console.log(id)
     return this.afs.collection<any>('Users').doc(id).set({ ...user});
+  }
+
+  delete(id: string) : Promise<any> {
+    return this.afs.collection<any>('Users').doc(id).delete();
   }
 }

@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [],
@@ -36,7 +37,8 @@ import { MatRippleModule } from '@angular/material/core';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
   ],
   exports: [
     RouterModule,
@@ -54,7 +56,8 @@ import { MatRippleModule } from '@angular/material/core';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatRippleModule
+    MatRippleModule,
+    MatDialogModule,
   ],
 })
 export class SharedModule {}
