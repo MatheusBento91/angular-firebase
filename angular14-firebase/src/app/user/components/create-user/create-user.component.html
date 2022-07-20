@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card *ngIf="!loading">
   <div class="container">
     <mat-card-title class="title"> Create user</mat-card-title>
     <form [formGroup]="userForm" (submit)="save()">
@@ -52,3 +52,5 @@
     </form>
   </div>
 </mat-card>
+
+<app-progress-bar *ngIf="loading"></app-progress-bar>

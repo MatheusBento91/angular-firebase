@@ -12,6 +12,7 @@ import { UserService } from '../../services/user.service';
 export class CreateUserComponent implements OnInit {
   hide = true;
   userForm!: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -35,14 +36,17 @@ export class CreateUserComponent implements OnInit {
   }
 
   save() {
+    this.loading = true;
     const userForm: any = this.userForm.getRawValue();
 
     this._userService.create(userForm).then(
       () => {
+        this.loading = false;
         this.toastr.success('User create successfully!', 'Sucess!');
         this.router.navigate(['/home/user']);
       },
       (error) => {
+        this.loading = false;
         this.toastr.error('Error for create user', 'Error!');
         throw new Error(error);
       }

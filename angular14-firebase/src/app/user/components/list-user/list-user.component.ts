@@ -31,6 +31,7 @@ export class ListUserComponent implements OnInit {
     'actions',
   ];
   dataSource!: MatTableDataSource<UserData>;
+  loading: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -43,10 +44,12 @@ export class ListUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.userService.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.loading = false;
     });
   }
 

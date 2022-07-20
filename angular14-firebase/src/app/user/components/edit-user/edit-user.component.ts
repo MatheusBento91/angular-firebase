@@ -14,6 +14,7 @@ export class EditUserComponent implements OnInit {
   userForm!: FormGroup;
   user: any;
   id: string;
+  loading: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -49,13 +50,16 @@ export class EditUserComponent implements OnInit {
   }
 
   save() {
+    this.loading = true;
     const userForm: any = this.userForm.getRawValue();
     this._userService.update(this.id, userForm).then(
       () => {
+        this.loading = false;
         this.toastr.success('User updated successfully!', 'Sucess!');
         this.router.navigate(['/home/user']);
       },
       (error) => {
+        this.loading = false;
         this.toastr.error('Error for updated user', 'Error!');
         throw new Error(error);
       }
