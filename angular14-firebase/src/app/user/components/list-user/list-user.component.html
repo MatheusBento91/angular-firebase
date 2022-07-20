@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="!loading">
   <div class="create-user">
     <button class="btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
   </div>
@@ -60,3 +60,5 @@
   </div>
 
 </div>
+
+<app-progress-bar *ngIf="loading"></app-progress-bar>

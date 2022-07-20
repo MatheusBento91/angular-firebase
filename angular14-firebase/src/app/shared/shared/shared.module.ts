@@ -5,6 +5,10 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AccessDeniedComponent } from '../components/access-denied/access-denied.component';
+import { NotFoundComponent } from '../components/not-found/not-found.component';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar.component';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,9 +21,15 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AccessDeniedComponent,
+    NotFoundComponent,
+    ProgressBarComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -39,6 +49,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatRippleModule,
     MatDialogModule,
+    MatProgressBarModule,
   ],
   exports: [
     RouterModule,
@@ -58,6 +69,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatRippleModule,
     MatDialogModule,
+    MatProgressBarModule,
+    ProgressBarComponent
   ],
 })
 export class SharedModule {}
