@@ -15,6 +15,13 @@ import { AuthService } from './services/auth.service';
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ToastrModule } from 'ngx-toastr';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+const maskConfigFunction: () => Partial<IConfig> = () => {
+  return {
+    validation: false,
+  };
+};
 
 @NgModule({
   declarations: [
@@ -33,7 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
       easeTime: 500,
       progressAnimation: 'decreasing',
     }),
-    SharedModule
+    SharedModule,
+    NgxMaskModule.forRoot(maskConfigFunction),
   ],
   providers: [
     AuthService,

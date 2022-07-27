@@ -30,7 +30,13 @@ export class CreateUserComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required]],
+      phoneNumber: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(/\(?([0-9]{2})\)?([ .-]?)([0-9]{5})\2([0-9]{4})/),
+        ],
+      ],
       salaryExpectation: ['', [Validators.required]],
     });
   }

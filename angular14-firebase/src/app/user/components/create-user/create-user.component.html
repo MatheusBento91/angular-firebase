@@ -33,14 +33,18 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Phone Number</mat-label>
-        <input matInput formControlName="phoneNumber" placeholder="Phone Number">
+        <input matInput mask="(00) 0 0000-0000" formControlName="phoneNumber" placeholder="Phone Number">
         <mat-icon matSuffix color="primary">settings_cell</mat-icon>
-        <mat-error *ngIf="userForm.get('phoneNumber')?.hasError('required')">Phone Number is required</mat-error>
+        <mat-error *ngIf="userForm.get('phoneNumber')?.hasError('required')">Phone number is required</mat-error>
+        <mat-error
+          *ngIf="!userForm.get('phoneNumber')?.hasError('required') && userForm.get('phoneNumber')?.hasError('pattern')">
+          Please provide a valid phone number</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Salary expectation</mat-label>
-        <input matInput type="number" formControlName="salaryExpectation" placeholder="Salary expectation">
+        <input matInput mask="separator.2" thousandSeparator="." formControlName="salaryExpectation"
+          placeholder="Salary expectation">
         <mat-icon matSuffix color="primary">attach_money</mat-icon>
         <mat-error *ngIf="userForm.get('salaryExpectation')?.hasError('required')">Salary expectation is required
         </mat-error>
