@@ -37,7 +37,9 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      easeTime: 500,
+      easeTime: 600,
+      progressBar: true,
+      closeButton: true,
       progressAnimation: 'decreasing',
     }),
     SharedModule,

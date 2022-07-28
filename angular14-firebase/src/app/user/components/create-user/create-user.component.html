@@ -43,7 +43,7 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Salary expectation</mat-label>
-        <input matInput mask="separator.2" thousandSeparator="." formControlName="salaryExpectation"
+        <input matInput type="text" mask="separator.2" thousandSeparator="." formControlName="salaryExpectation"
           placeholder="Salary expectation">
         <mat-icon matSuffix color="primary">attach_money</mat-icon>
         <mat-error *ngIf="userForm.get('salaryExpectation')?.hasError('required')">Salary expectation is required

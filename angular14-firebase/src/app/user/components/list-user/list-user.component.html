@@ -28,12 +28,12 @@
 
       <ng-container matColumnDef="phoneNumber">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
-        <td mat-cell *matCellDef="let row"> {{row.phoneNumber}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.phoneNumber | mask: '(00) 0 0000-0000' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="salaryExpectation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary Expectation </th>
-        <td mat-cell *matCellDef="let row"> {{row.salaryExpectation}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.salaryExpectation | mask: 'separator.2':'.' }} </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">
