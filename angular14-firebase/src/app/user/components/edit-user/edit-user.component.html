@@ -47,9 +47,7 @@
         </mat-error>
       </mat-form-field>
 
-      <button class="btn" type="submit"
-        [ngClass]="userForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-        [disabled]="userForm.invalid" mat-raised-button color="primary"> Edit </button>
+      <button class="btn" type="submit" [disabled]="userForm.invalid" mat-raised-button color="primary"> Edit </button>
     </form>
   </div>
 </mat-card>
