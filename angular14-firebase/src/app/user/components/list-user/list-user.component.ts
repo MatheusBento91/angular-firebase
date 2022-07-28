@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { User } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -30,8 +31,16 @@ export class ListUserComponent implements OnInit {
     'salaryExpectation',
     'actions',
   ];
+  list: any;
   dataSource!: MatTableDataSource<UserData>;
   loading: boolean = false;
+
+  filter: string = "";
+  length = 0;
+  pageSize = 5;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+  showFirstLastButtons = true;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -44,11 +53,20 @@ export class ListUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.get();
+  }
+
+  get() {
     this.loading = true;
     this.userService.list().subscribe((data) => {
+      this.length = data.length;
+
+      this.list = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.iterator();
+
       this.loading = false;
     });
   }
@@ -60,6 +78,20 @@ export class ListUserComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  handlePageEvent(event: PageEvent) {
+    this.pageIndex = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.filter = "";
+    this.iterator();
+  }
+
+  private iterator() {
+    const end = (this.pageIndex + 1) * this.pageSize;
+    const start = this.pageIndex * this.pageSize;
+    const part = this.list.slice(start, end);
+    this.dataSource = new MatTableDataSource(part);
   }
 
   registerUser() {
