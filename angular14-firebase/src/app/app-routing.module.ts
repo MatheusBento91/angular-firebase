@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/components/login/login.component';
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from './services/auth/auth.guard';
 import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 

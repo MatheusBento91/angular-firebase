@@ -11,11 +11,12 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { LoginComponent } from './login/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared/shared.module';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './services/auth/auth.service';
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ToastrModule } from 'ngx-toastr';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { ThemeService } from './services/theme/theme.service';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -47,6 +48,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   ],
   providers: [
     AuthService,
+    ThemeService,
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
   ],
   bootstrap: [AppComponent]

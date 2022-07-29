@@ -22,13 +22,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
     AccessDeniedComponent,
     NotFoundComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +50,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatRippleModule,
     MatDialogModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
   ],
   exports: [
     RouterModule,
@@ -70,7 +71,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatRippleModule,
     MatDialogModule,
     MatProgressBarModule,
-    ProgressBarComponent
+    ProgressBarComponent,
+    MatSlideToggleModule,
   ],
 })
 export class SharedModule {}

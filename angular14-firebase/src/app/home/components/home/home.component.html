@@ -6,7 +6,11 @@
     <span class="example-spacer"></span>
     <h1 class="example-app-name">Open recruiter</h1>
     <span class="example-spacer"></span>
-    <span class="admin-email">{{ adminEmail }}</span>
+    <mat-slide-toggle [labelPosition]="'after'" [checked]="isDarkTheme | async"
+      (change)="toggleDarkTheme($event.checked)">
+      <mat-icon>{{ isDarkIcon ? 'light_mode' : 'dark_mode' }}</mat-icon>
+    </mat-slide-toggle>
+    <!-- <span class="admin-email">{{ adminEmail }}</span> -->
     <button mat-icon-button (click)="logOut()">
       <mat-icon>logout</mat-icon>
     </button>
