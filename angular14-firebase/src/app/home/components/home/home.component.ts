@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageUtils } from 'src/app/utils/localstorage';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { ThemeService } from 'src/app/services/theme/theme.service';
 
 const listSideNav = [
   {
@@ -39,17 +41,22 @@ export class HomeComponent implements OnDestroy, OnInit  {
   localStorageUtils = new LocalStorageUtils();
   adminEmail: string = "";
 
+  isDarkTheme!: Observable<boolean>;
+  isDarkIcon = false;
+
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
               media: MediaMatcher,
-              private router: Router) {
+              private router: Router,
+              private themeService: ThemeService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
   ngOnInit(): void {
+    this.isDarkTheme = this.themeService.isDarkTheme$;
     this.adminEmail = this.localStorageUtils.getUser();
   }
 
@@ -60,6 +67,11 @@ export class HomeComponent implements OnDestroy, OnInit  {
   logOut() {
     this.localStorageUtils.clearUserData();
     this.router.navigate(['/login']);
+  }
+
+  toggleDarkTheme(checked: boolean) {
+    this.isDarkIcon = checked;
+    this.themeService.setDarkTheme(checked);
   }
 
 }
