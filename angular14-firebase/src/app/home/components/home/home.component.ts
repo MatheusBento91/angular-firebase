@@ -14,7 +14,7 @@ const listSideNav = [
   {
     Name: 'Admin',
     Icon: 'account_circle',
-    RouterLink: 'admin',
+    RouterLink: '/home/admin',
   },
   {
     Name: 'Users',
@@ -34,14 +34,13 @@ const listSideNav = [
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnDestroy, OnInit  {
-
   listSideNav = listSideNav;
   mobileQuery: MediaQueryList;
 
   localStorageUtils = new LocalStorageUtils();
   adminEmail: string = "";
 
-  isDarkTheme!: Observable<boolean>;
+  isDarkTheme$!: Observable<boolean>;
   isDarkIcon = false;
 
   private _mobileQueryListener: () => void;
@@ -56,7 +55,7 @@ export class HomeComponent implements OnDestroy, OnInit  {
   }
 
   ngOnInit(): void {
-    this.isDarkTheme = this.themeService.isDarkTheme$;
+    this.isDarkTheme$ = this.themeService.isDarkTheme$;
     this.adminEmail = this.localStorageUtils.getUser();
   }
 
@@ -73,5 +72,4 @@ export class HomeComponent implements OnDestroy, OnInit  {
     this.isDarkIcon = checked;
     this.themeService.setDarkTheme(checked);
   }
-
 }

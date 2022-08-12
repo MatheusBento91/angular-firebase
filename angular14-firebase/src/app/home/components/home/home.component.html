@@ -6,21 +6,30 @@
     <span class="example-spacer"></span>
     <h1 class="example-app-name">Open recruiter</h1>
     <span class="example-spacer"></span>
-    <mat-slide-toggle [labelPosition]="'after'" [checked]="isDarkTheme | async"
+    <mat-slide-toggle [labelPosition]="'after'" [checked]="isDarkTheme$ | async"
       (change)="toggleDarkTheme($event.checked)">
       <mat-icon>{{ isDarkIcon ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </mat-slide-toggle>
-    <!-- <span class="admin-email">{{ adminEmail }}</span> -->
-    <button mat-icon-button (click)="logOut()">
-      <mat-icon>logout</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logOut()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>{{ adminEmail }}</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="{{ nav.RouterLink }}" *ngFor="let nav of listSideNav">
+        <a mat-list-item routerLink="{{ nav.RouterLink }}" (click)="snav.toggle()" *ngFor="let nav of listSideNav">
           <mat-icon color="primary" class="icon-sidenav">{{ nav.Icon }}</mat-icon> {{ nav.Name }}
         </a>
       </mat-nav-list>
