@@ -9,6 +9,7 @@
 <p>Using ngx-toastr for a better notifications for users.</p>
 <p>Using ngx-mask for using mask in inputs.</p>
 <p>Project with light and dark mode theme using angular material and rxjs for control state of theme</p>
+<p>Now the login with Google and if i want could be with Microsoft or GitHub, etc...</p>
 
 <h2> Application environment </h2>
 <h4> https://angular14-firebase.web.app/ <h4>
