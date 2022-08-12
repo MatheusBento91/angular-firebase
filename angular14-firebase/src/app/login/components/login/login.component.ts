@@ -48,21 +48,40 @@ export class LoginComponent implements OnInit {
       this.loginForm.getRawValue()
     );
 
-    this._authSerivce.login(requestLogin).then(
-      (response) => {
+    this._authSerivce
+      .login(requestLogin)
+      .then((response) => {
         if (response) {
-          const user = response.user.multiFactor.user;
-
-          this.localStorageUtils.saveUser(user.email);
-          this.localStorageUtils.saveUserToken(user.accessToken);
-
-          this.toastr.success('Login successfully!', 'Sucess!');
-          this.router.navigate(['/home']);
+          this.handlerLogin(response);
         }
-      }
-    ).catch(error => {
-      this.toastr.error('Email or password is invalid!', 'Invalid data!');
-      throw new Error(error);
-    });
+      })
+      .catch((error) => {
+        this.toastr.error('Email or password is invalid!', 'Invalid data!');
+        throw new Error(error);
+      });
+  }
+
+  loginWithGoogle() {
+    this._authSerivce
+      .loginWithGoogle()
+      .then((response) => {
+        if (response) {
+          this.handlerLogin(response);
+        }
+      })
+      .catch((error) => {
+        this.toastr.error('Email or password is invalid!', 'Invalid data!');
+        throw new Error(error);
+      });
+  }
+
+  handlerLogin(response: any) {
+    const user = response.user.multiFactor.user;
+
+    this.localStorageUtils.saveUser(user.email);
+    this.localStorageUtils.saveUserToken(user.accessToken);
+
+    this.toastr.success('Login successfully!', 'Sucess!');
+    this.router.navigate(['/home']);
   }
 }
