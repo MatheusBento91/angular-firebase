@@ -23,6 +23,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDialogModule,
     MatProgressBarModule,
     MatSlideToggleModule,
+    MatMenuModule,
   ],
   exports: [
     RouterModule,
@@ -73,6 +75,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatProgressBarModule,
     ProgressBarComponent,
     MatSlideToggleModule,
+    MatMenuModule,
   ],
 })
 export class SharedModule {}
