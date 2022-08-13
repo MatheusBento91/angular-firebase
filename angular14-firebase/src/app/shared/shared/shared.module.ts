@@ -24,6 +24,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatProgressBarModule,
     MatSlideToggleModule,
     MatMenuModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatSelectModule,
   ],
   exports: [
     RouterModule,
@@ -76,6 +82,9 @@ import { MatMenuModule } from '@angular/material/menu';
     ProgressBarComponent,
     MatSlideToggleModule,
     MatMenuModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatSelectModule,
   ],
 })
 export class SharedModule {}
