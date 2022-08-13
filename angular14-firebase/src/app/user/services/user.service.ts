@@ -5,6 +5,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +25,7 @@ export class UserService {
     return usersRef.add({ ...user });
   }
 
-  getById(id: string): Observable<any> {
+  getById(id: string): Observable<User> {
     return this.afs.collection<any>('Users').doc(id).valueChanges();
   }
 

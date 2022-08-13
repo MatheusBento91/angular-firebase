@@ -1,15 +1,7 @@
-mat-card {
-  height: 100%;
-  margin: 50px 100px 100px 100px;
-  display: flex;
-  justify-content: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
 }
 
 .title {
@@ -27,6 +19,7 @@ form {
   width: 250px;
   height: 45px;
   width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 @media only screen and (max-width: 498px) {
