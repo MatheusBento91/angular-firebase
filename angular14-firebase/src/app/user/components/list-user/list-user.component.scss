@@ -11,12 +11,8 @@ table {
   width: 20%!important;
 }
 
-.mat-column-lastName{
-  width: 20%!important;
-}
-
 .mat-column-email{
-  width: 15%!important;
+  width: 20%!important;
 }
 
 .mat-column-phoneNumber{
@@ -27,8 +23,16 @@ table {
   width: 15%!important;
 }
 
+.mat-column-principalStack{
+  width: 10%!important;
+}
+
+.mat-column-allTechs{
+  width: 10%!important;
+}
+
 .mat-column-actions{
-  width: 15%!important;
+  width: 20%!important;
 }
 
 .create-user {

@@ -16,11 +16,6 @@
         <td mat-cell *matCellDef="let row"> {{row.name}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="lastName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
-      </ng-container>
-
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
         <td mat-cell *matCellDef="let row"> {{row.email}} </td>
@@ -34,6 +29,20 @@
       <ng-container matColumnDef="salaryExpectation">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary Expectation </th>
         <td mat-cell *matCellDef="let row"> {{row.salaryExpectation | mask: 'separator.2':'.' }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="principalStack">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stack </th>
+        <td mat-cell *matCellDef="let row"> {{row.principalStack}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="allTechs">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> All techs </th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="openAllTechs(row)">
+            <mat-icon>open_in_new</mat-icon> <!--  -->
+          </button>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">

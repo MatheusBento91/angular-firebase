@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 mat-dialog-title>{{ data.name }}</h1>
+  <h3 mat-dialog-sub-title>All techs</h3>
+  <div mat-dialog-content class="content">
+    <p *ngFor="let tech of data.technologies "> &#10003; {{ tech.tech }}</p>
+  </div>
+  <button class="btn" mat-button (click)="dialogRef.close()">Ok</button>
+</div>

@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from '../../services/user.service';
 })
 export class DeleteUserComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+  constructor(@Inject(MAT_DIALOG_DATA) public data: User,
   public dialogRef: MatDialogRef<DeleteUserComponent>,
   private _userService: UserService) { }
 

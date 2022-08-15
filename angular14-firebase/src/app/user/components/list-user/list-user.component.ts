@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { User } from '@angular/fire/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { PrincipalStack } from '../../models/principal-stack.enum';
+import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { AllTechsDialogComponent } from '../all-techs-dialog/all-techs-dialog.component';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 
 export interface UserData {
@@ -25,10 +27,11 @@ export interface UserData {
 export class ListUserComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
-    'lastName',
     'email',
     'phoneNumber',
     'salaryExpectation',
+    'principalStack',
+    'allTechs',
     'actions',
   ];
   list: any;
@@ -41,6 +44,7 @@ export class ListUserComponent implements OnInit {
   pageIndex = 0;
   pageSizeOptions = [5, 10, 25];
   showFirstLastButtons = true;
+  principalStack = PrincipalStack;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -98,11 +102,11 @@ export class ListUserComponent implements OnInit {
     this.router.navigate(['home/user/create-user']);
   }
 
-  editUser(user: any) {
+  editUser(user: User) {
     this.router.navigate([`home/user/edit-user/${user.id}`]);
   }
 
-  deleteUser(user: any) {
+  deleteUser(user: User) {
     const dialogRef = this.dialog.open(DeleteUserComponent, {
       data: user,
     });
@@ -111,6 +115,12 @@ export class ListUserComponent implements OnInit {
       if (result) {
         this.toastr.success('User deleted successfully!', 'Sucess!');
       }
+    });
+  }
+
+  openAllTechs(user: User) {
+    const dialogRef = this.dialog.open(AllTechsDialogComponent, {
+      data: user,
     });
   }
 }
