@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './styles/material-theme.scss';
+@import './styles/global-style.scss';
 @import '~ngx-toastr/toastr';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

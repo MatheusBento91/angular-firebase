@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   hide = true;
   localStorageUtils = new LocalStorageUtils();
+  loading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loading = true;
     const requestLogin: ILogin = Object.assign(
       {},
       this.loginForm.getRawValue()
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit {
       })
       .catch((error) => {
         this.toastr.error('Email or password is invalid!', 'Invalid data!');
+        this.loading = false;
         throw new Error(error);
       });
   }
@@ -71,6 +74,7 @@ export class LoginComponent implements OnInit {
       })
       .catch((error) => {
         this.toastr.error('Email or password is invalid!', 'Invalid data!');
+        this.loading = false;
         throw new Error(error);
       });
   }
@@ -83,5 +87,6 @@ export class LoginComponent implements OnInit {
 
     this.toastr.success('Login successfully!', 'Sucess!');
     this.router.navigate(['/home']);
+    this.loading = false;
   }
 }

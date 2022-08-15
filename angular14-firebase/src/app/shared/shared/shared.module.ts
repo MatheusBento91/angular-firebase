@@ -27,6 +27,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatChipsModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatDividerModule,
   ],
   exports: [
     RouterModule,
@@ -85,6 +87,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatChipsModule,
     MatAutocompleteModule,
     MatSelectModule,
+    MatDividerModule,
   ],
 })
 export class SharedModule {}

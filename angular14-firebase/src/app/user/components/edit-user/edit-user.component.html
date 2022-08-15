@@ -1,4 +1,4 @@
-<div *ngIf="!loading" class="container">
+<div class="container">
   <mat-card-title class="title"> Edit user</mat-card-title>
   <form [formGroup]="userForm" (submit)="save()">
 
@@ -78,8 +78,6 @@
       </mat-autocomplete>
     </mat-form-field>
 
-    <button class="btn" type="submit" [disabled]="userForm.invalid" mat-raised-button color="primary"> Edit </button>
+    <button class="btn" type="submit" [class.spinner]="loading" [disabled]="userForm.invalid || loading" mat-raised-button color="primary"> Edit </button>
   </form>
 </div>
-
-<app-progress-bar *ngIf="loading"></app-progress-bar>

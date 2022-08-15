@@ -8,6 +8,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { SharedModule } from '../shared/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
+import { AllTechsDialogComponent } from './components/all-techs-dialog/all-techs-dialog.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NgxMaskModule } from 'ngx-mask';
     ListUserComponent,
     CreateUserComponent,
     EditUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    AllTechsDialogComponent
   ],
   imports: [
     CommonModule,

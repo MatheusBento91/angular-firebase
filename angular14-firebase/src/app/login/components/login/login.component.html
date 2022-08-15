@@ -31,8 +31,8 @@
             Password must be a maximum of 12 characters</mat-error>
         </mat-form-field>
 
-        <button type="submit" [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-          [disabled]="loginForm.invalid" class="form button" mat-raised-button color="primary">Login</button>
+        <button type="submit" [class.spinner]="loading" [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
+          [disabled]="loginForm.invalid || loading" class="form button" mat-raised-button color="primary">Login</button>
 
         <button type="button" class="form button-google" mat-raised-button (click)="loginWithGoogle()">
           <img src="../../../../assets/img/icons8-google-logo-48.png" height="35" alt="Login with Google"/> Login with Google

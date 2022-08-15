@@ -1,0 +1,18 @@
+.container {
+  min-width: 250px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  width: 100% !important;
+  text-align: center  ;
+}
+
+.btn {
+  margin-top: 1rem;
+  width: 75%;
+}

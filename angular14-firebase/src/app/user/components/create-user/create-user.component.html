@@ -1,4 +1,4 @@
-<div *ngIf="!loading" class="container">
+<div class="container">
   <mat-card-title class="title"> Create user</mat-card-title>
   <form [formGroup]="userForm" (submit)="save()">
 
@@ -81,10 +81,8 @@
       </mat-autocomplete>
     </mat-form-field>
 
-    <button class="btn" type="submit"
+    <button class="btn" type="submit" [class.spinner]="loading"
       [ngClass]="userForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-      [disabled]="userForm.invalid" mat-raised-button color="primary"> Create </button>
+      [disabled]="userForm.invalid || loading" mat-raised-button color="primary"> Create </button>
   </form>
 </div>
-
-<app-progress-bar *ngIf="loading"></app-progress-bar>
