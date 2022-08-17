@@ -17,6 +17,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { ToastrModule } from 'ngx-toastr';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { ThemeService } from './services/theme/theme.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -32,6 +33,7 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FlexLayoutModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

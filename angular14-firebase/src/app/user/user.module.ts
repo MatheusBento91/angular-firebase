@@ -9,6 +9,8 @@ import { DeleteUserComponent } from './components/delete-user/delete-user.compon
 import { SharedModule } from '../shared/shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import { AllTechsDialogComponent } from './components/all-techs-dialog/all-techs-dialog.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { AllTechsDialogComponent } from './components/all-techs-dialog/all-techs
   imports: [
     CommonModule,
     UserRoutingModule,
+    FlexLayoutModule,
     SharedModule,
     NgxMaskModule.forChild()
   ]
