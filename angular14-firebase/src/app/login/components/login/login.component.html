@@ -1,11 +1,12 @@
-<div class="body">
-  <div class="login animate__animated animate__bounceInDown">
+<div class="container">
+
+  <div class="container__login animate__animated animate__bounceInDown">
     <mat-card>
-      <mat-card-title class="title">Login</mat-card-title>
+      <mat-card-title class="container__login__title">Login</mat-card-title>
       <img class="form img animate__animated animate__flipInX animate__delay-1s"
-        src="../../../assets/img/support _ girl.png" alt="User img" width="200px">
+        src="../../../assets/img/support _ girl.png" alt="User img"  width="150px">
       <form [formGroup]="loginForm" (submit)="login()">
-        <mat-form-field appearance="outline" class="form">
+        <mat-form-field appearance="outline" class="container__login__form">
           <mat-label>Email</mat-label>
           <input matInput placeholder="user@yourdomian.com" formControlName="email" autocomplete="off">
           <mat-icon matSuffix color="primary">email</mat-icon>
@@ -14,7 +15,7 @@
             Please provide a valid email</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="form">
+        <mat-form-field appearance="outline" class="container__login__form">
           <mat-label>Password</mat-label>
           <input formControlName="password" autocomplete="off" matInput [type]="hide ? 'password' : 'text'"
             placeholder="Password">
@@ -32,12 +33,13 @@
         </mat-form-field>
 
         <button type="submit" [class.spinner]="loading" [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-          [disabled]="loginForm.invalid || loading" class="form button" mat-raised-button color="primary">Login</button>
+          [disabled]="loginForm.invalid || loading" class="container__login__form container__login__button" mat-raised-button color="primary">Login</button>
 
-        <button type="button" class="form button-google" mat-raised-button (click)="loginWithGoogle()">
+        <button type="button" class="container__login__form container__login__button-google" mat-raised-button (click)="loginWithGoogle()">
           <img src="../../../../assets/img/icons8-google-logo-48.png" height="35" alt="Login with Google"/> Login with Google
         </button>
       </form>
     </mat-card>
   </div>
+
 </div>
