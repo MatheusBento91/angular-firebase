@@ -3,73 +3,72 @@
     <button class="btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
   </div>
 
-  <mat-form-field appearance="standard">
+  <mat-form-field class="filter" appearance="standard">
     <mat-label>Filter</mat-label>
-    <input matInput  [(ngModel)]="filter" (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
 
-  <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort class="animate">
+  <div class="example-container mat-elevation-z8">
+    <mat-table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="phoneNumber">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
-        <td mat-cell *matCellDef="let row"> {{row.phoneNumber | mask: '(00) 0 0000-0000' }} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Phone number"> {{row.phoneNumber | mask: '(00) 0 0000-0000'}}
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="salaryExpectation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Salary Expectation </th>
-        <td mat-cell *matCellDef="let row"> {{row.salaryExpectation | mask: 'separator.2':'.' }} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Salary expectation </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Salary expectation"> {{row.salaryExpectation | mask: 'separator.2':'.'
+          }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="principalStack">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stack </th>
-        <td mat-cell *matCellDef="let row"> {{row.principalStack}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Principal stack </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Principal stack"> {{row.principalStack}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="allTechs">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> All techs </th>
-        <td mat-cell *matCellDef="let row">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> All techs </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let row" data-label="All techs">
           <button mat-icon-button color="primary" (click)="openAllTechs(row)">
-            <mat-icon>open_in_new</mat-icon> <!--  -->
+            <mat-icon>open_in_new</mat-icon>
           </button>
-        </td>
+        </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
-        <td mat-cell *matCellDef="let row">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+        <mat-cell mat-cell *matCellDef="let row" data-label="Actions">
           <button mat-icon-button color="primary" (click)="editUser(row)">
             <mat-icon>edit</mat-icon>
           </button>
           <button mat-icon-button color="warn" (click)="deleteUser(row)">
             <mat-icon>delete</mat-icon>
           </button>
-        </td>
+        </mat-cell>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;">
+      </mat-row>
 
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-      </tr>
-    </table>
+    </mat-table>
 
     <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
       [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex">
     </mat-paginator>
   </div>
-
 </div>
 
 <app-progress-bar *ngIf="loading"></app-progress-bar>

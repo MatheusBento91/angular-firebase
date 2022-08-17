@@ -2,37 +2,8 @@
   margin: 35px 50px 35px 35px;
 }
 
-table {
+.filter {
   width: 100%;
-  height: 100% !important;
-}
-
-.mat-column-name{
-  width: 20%!important;
-}
-
-.mat-column-email{
-  width: 20%!important;
-}
-
-.mat-column-phoneNumber{
-  width: 15%!important;
-}
-
-.mat-column-salaryExpectation{
-  width: 15%!important;
-}
-
-.mat-column-principalStack{
-  width: 10%!important;
-}
-
-.mat-column-allTechs{
-  width: 10%!important;
-}
-
-.mat-column-actions{
-  width: 20%!important;
 }
 
 .create-user {
@@ -45,35 +16,77 @@ table {
   height: 45px;
 }
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-.mat-row:hover {
-  background-color: #E8EAF6;
-  cursor: pointer;
-}
-
-td, th {
-  width: 25%;
-}
-
-@media only screen and (max-width: 820px) {
+@media screen and (max-width: 960px) {
   .container {
-    margin: 15px 5px 0px 5px;
-    height: 100%;
+    margin: unset;
   }
 
-  ::ng-deep .ng-scroll-content {
-    height: 100% !important;
+  .create-user {
+    margin-top: 1rem;
+    justify-content: center;
   }
 
   .btn {
-    width: 100%;
+    width: 90%;
   }
 
-  .mat-elevation-z8 {
-    height: 80%;
+  .filter {
+    margin-left: 20px;
+    width: 90%;
+  }
+
+  .mat-table {
+    border: 0;
+    vertical-align: middle;
+    height: 100%;
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  .mat-table .mat-header-cell {
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    font-weight: 800;
+    text-align: right;
+    height:30px;
+    margin-bottom: 4%;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .mat-table .mat-cell:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: .85em;
+  }
+
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+    padding-right: unset;
+  }
+
+  .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+    padding-left: unset;
   }
 }
