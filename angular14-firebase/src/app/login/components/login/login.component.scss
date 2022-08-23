@@ -1,3 +1,5 @@
+@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+
 .container {
   height: 100%;
   display: flex;
@@ -19,6 +21,10 @@
 
     &__title {
       margin-top: 25px !important;
+      font-family: "Lato", sans-serif;
+      font-weight: 300;
+      letter-spacing: 2px;
+      font-size: 32px;
     }
 
     &__form {
