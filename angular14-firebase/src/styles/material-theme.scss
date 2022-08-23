@@ -5,16 +5,15 @@
 $primary: mat-palette($mat-blue);
 $accent: mat-palette($mat-light-blue, 900, 800, 200);
 $warn: mat-palette($mat-red);
-$theme: mat-light-theme($primary, $accent, $warn);
+$light-theme: mat-light-theme($primary, $accent, $warn);
 
-@include angular-material-theme($theme);
+@include angular-material-theme($light-theme);
 
 .dark-theme {
   color: $light-primary-text;
-  $dark-primary: mat-palette($mat-light-blue, 900, 800, 200);
-  $dark-accent: mat-palette($mat-blue);
-  $dark-warn: mat-palette($mat-red);
-  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  $dark-primary: mat-palette($mat-light-blue , 900, 800, 200);
+  $dark-accent: mat-palette($mat-pink);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $warn);
 
   @include angular-material-theme($dark-theme);
 }
