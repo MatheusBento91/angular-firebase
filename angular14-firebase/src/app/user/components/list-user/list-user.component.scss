@@ -6,7 +6,7 @@
   width: 100%;
 }
 
-.create-user {
+.header {
   display: flex;
   justify-content: end;
 }
@@ -21,7 +21,7 @@
     margin: unset;
   }
 
-  .create-user {
+  .header {
     margin-top: 1rem;
     justify-content: center;
   }
