@@ -1,6 +1,7 @@
 .container {
   min-width: 250px;
   min-height: 250px;
+  max-height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,4 +16,8 @@
 .btn {
   margin-top: 1rem;
   width: 75%;
+}
+
+h1, h2 {
+  margin-top: 0.5rem;
 }
