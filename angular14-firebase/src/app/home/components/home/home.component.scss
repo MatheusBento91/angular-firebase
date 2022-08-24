@@ -50,3 +50,9 @@ h2 {
 mat-sidenav {
   min-width: 200px;
 }
+
+@media (max-width: 600px) {
+  .app-name {
+    display: none;
+  }
+}

@@ -24,7 +24,7 @@ const listSideNav = [
   {
     Name: 'Dashboard',
     Icon: 'dashboard',
-    RouterLink: '/dashboard',
+    RouterLink: '/home/dashboard',
   },
 ];
 

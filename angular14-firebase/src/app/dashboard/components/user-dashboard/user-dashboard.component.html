@@ -1,0 +1,22 @@
+<div class="container">
+  <mat-card class="container__card">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [plugins]="barChartPlugins" [legend]="barChartLegend" [type]="barChartType">
+    </canvas>
+  </mat-card>
+  <mat-card class="container__card">
+    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+      [plugins]="barChartPlugins" [legend]="barChartLegend" [type]="barChartType">
+    </canvas>
+  </mat-card>
+  <mat-card class="container__card">
+    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
+      [legend]="true" [type]="'doughnut'">
+    </canvas>
+  </mat-card>
+  <mat-card class="container__card">
+    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
+      [legend]="true" [type]="'doughnut'">
+    </canvas>
+  </mat-card>
+</div>
