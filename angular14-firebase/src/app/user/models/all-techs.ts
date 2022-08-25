@@ -10,14 +10,21 @@ export const AllTechs = tupleArray(
   'Phyton',
   'Node.js',
   'Typescript',
+  'Dart',
   'JavaScript',
+  'Golang',
   'Git',
   'Angular',
   'React.js',
   'Vue.js',
+  'Flutter',
+  'React Native',
+  'Kotlin',
+  'Swift',
   'SQL Server',
   'MongoDb',
   'AWS',
   'Azure',
-  'Scrum'
+  'Scrum',
+  'Kanbam'
 );
