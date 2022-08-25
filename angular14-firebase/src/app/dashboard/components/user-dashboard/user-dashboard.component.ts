@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  ChartOptions,
-  ChartType,
-  ChartDataset,
-  ChartConfiguration,
-} from 'chart.js';
+import { ChartConfiguration, ChartEvent } from 'chart.js';
+import { PrincipalStack } from 'src/app/user/models/principal-stack.enum';
+import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -12,40 +9,93 @@ import {
   styleUrls: ['./user-dashboard.component.scss'],
 })
 export class UserDashboardComponent implements OnInit {
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  barChartLabels: String[] = [
-    'Apple',
-    'Banana',
-    'Kiwifruit',
-    'Blueberry',
-    'Orange',
-    'Grapes',
-  ];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-  barChartData: ChartDataset[] = [
-    { data: [45, 37, 60, 70, 46, 33], label: 'Best Fruits' },
+
+  loading = true;
+
+  public doughnutChartLabels: string[] = [
+    'Full stack',
+    'Back-End',
+    'Front-End',
+    'Mobile',
+    'DevOps',
   ];
 
-  // Doughnut
-  public doughnutChartLabels: string[] = [
-    'Download Sales',
-    'In-Store Sales',
-    'Mail-Order Sales',
-  ];
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] =
-    [
-      { data: [350, 450, 100], label: 'Series A' },
-      // { data: [50, 150, 120], label: 'Series B' },
-      // { data: [250, 130, 70], label: 'Series C' },
-    ];
+    [];
 
   public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false,
+    responsive: false
   };
 
-  ngOnInit(): void {}
+  constructor(private userService: UserService) {}
+
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  ngOnInit(): void {
+    this.userService.list().subscribe((data) => {
+      let fullStack: number = 0;
+      let backEnd: number = 0;
+      let frontEnd: number = 0;
+      let mobile: number = 0;
+      let devOps: number = 0;
+
+      data.forEach((item: any) => {
+        switch (item.principalStack) {
+          case PrincipalStack.FULLTSACK:
+            fullStack++;
+            break;
+          case PrincipalStack.BACKEND:
+            backEnd++;
+            break;
+          case PrincipalStack.FRONTEND:
+            frontEnd++;
+            break;
+          case PrincipalStack.MOBILE:
+            mobile++;
+            break;
+          case PrincipalStack.DEVOPS:
+            devOps++;
+            break;
+        }
+      });
+
+      const doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] =
+        [
+          {
+            label: 'Stack',
+            data: [fullStack, backEnd, frontEnd, mobile, devOps],
+            backgroundColor: [
+              '#DC7633',
+              '#16A085',
+              '#95A5A6',
+              '#2196F3',
+              '#AF7AC5',
+            ],
+            hoverBackgroundColor: [
+              '#A04000',
+              '#0E6655',
+              '#717D7E',
+              '#01579B',
+              '#76448A',
+            ],
+            hoverBorderColor: [
+              '#A04000',
+              '#0E6655',
+              '#717D7E',
+              '#01579B',
+              '#76448A',
+            ]
+          },
+        ];
+
+      this.doughnutChartDatasets = doughnutChartDatasets;
+      this.loading = false;
+    });
+  }
 }
