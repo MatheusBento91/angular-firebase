@@ -11,6 +11,7 @@
 <p>Project with light and dark mode theme using angular material and rxjs for control state of theme.</p>
 <p>Now the login with Google and if i want could be with Microsoft or GitHub, etc...</p>
 <p>Refactoring scss to use BEM pattern.</p>
+<p>To create a dashboard i used ng2-charts which is directives for chart.js.</p>
 
 <h2> Application environment </h2>
 <h4> https://angular14-firebase.web.app/ <h4>
