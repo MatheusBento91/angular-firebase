@@ -6,11 +6,13 @@ import { UserDashboardComponent } from './components/user-dashboard/user-dashboa
 
 import {SharedModule } from '../shared/shared/shared.module';
 import { NgChartsModule } from 'ng2-charts';
+import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 
 
 @NgModule({
   declarations: [
-    UserDashboardComponent
+    UserDashboardComponent,
+    DoughnutChartComponent
   ],
   imports: [
     CommonModule,
