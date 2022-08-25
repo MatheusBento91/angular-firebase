@@ -1,23 +1,19 @@
 <div *ngIf="!loading" class="container">
   <mat-card class="container__card">
-    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
-      [legend]="true" [type]="'doughnut'">
-    </canvas>
+    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
+      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
   </mat-card>
   <mat-card class="container__card">
-    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
-      [legend]="true" [type]="'doughnut'">
-    </canvas>
+    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
+      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
   </mat-card>
   <mat-card class="container__card">
-    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
-      [legend]="true" [type]="'doughnut'">
-    </canvas>
+    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
+      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
   </mat-card>
   <mat-card class="container__card">
-    <canvas baseChart [labels]="doughnutChartLabels" [datasets]="doughnutChartDatasets" [options]="doughnutChartOptions"
-      [legend]="true" [type]="'doughnut'">
-    </canvas>
+    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
+      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
   </mat-card>
 </div>
 

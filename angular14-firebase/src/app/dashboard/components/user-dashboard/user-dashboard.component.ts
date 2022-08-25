@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartEvent } from 'chart.js';
+import { ChartConfiguration } from 'chart.js';
 import { PrincipalStack } from 'src/app/user/models/principal-stack.enum';
 import { UserService } from 'src/app/user/services/user.service';
 
@@ -29,15 +29,15 @@ export class UserDashboardComponent implements OnInit {
 
   constructor(private userService: UserService) {}
 
-  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
   ngOnInit(): void {
+    this.getUsersStack();
+  }
+
+  chartClicked(e: any) {
+    console.log(e);
+  }
+
+  getUsersStack() {
     this.userService.list().subscribe((data) => {
       let fullStack: number = 0;
       let backEnd: number = 0;
@@ -98,4 +98,5 @@ export class UserDashboardComponent implements OnInit {
       this.loading = false;
     });
   }
+
 }
