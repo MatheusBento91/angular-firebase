@@ -4,7 +4,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { map, Observable } from 'rxjs';
+import { map, Observable, take } from 'rxjs';
 import { User } from '../models/user';
 
 @Injectable({
@@ -12,28 +12,39 @@ import { User } from '../models/user';
 })
 export class UserService {
   private usersCollections!: AngularFirestoreCollection<any>;
-  user!: Observable<any>;
 
   constructor(private afs: AngularFirestore) {}
 
-  list(): Observable<any> {
-    return this.afs.collection<any>('Users').valueChanges({ idField: 'id' });
+  list(): Observable<User[]> {
+    return this.afs
+      .collection<any>('Users')
+      .valueChanges({ idField: 'id' })
+      .pipe(
+        take(1)
+      );
   }
 
-  create(user: any): Promise<any> {
+  create(user: User): Promise<any> {
     const usersRef = this.afs.collection('Users');
     return usersRef.add({ ...user });
   }
 
   getById(id: string): Observable<User> {
-    return this.afs.collection<any>('Users').doc(id).valueChanges();
+    return this.afs
+      .collection<any>('Users')
+      .doc(id)
+      .valueChanges()
+      .pipe(take(1));
   }
 
-  update(id: string, user: any) : Promise<any> {
-    return this.afs.collection<any>('Users').doc(id).set({ ...user});
+  update(id: string, user: User): Promise<any> {
+    return this.afs
+      .collection<any>('Users')
+      .doc(id)
+      .set({ ...user });
   }
 
-  delete(id: string) : Promise<any> {
+  delete(id: string): Promise<any> {
     return this.afs.collection<any>('Users').doc(id).delete();
   }
 }

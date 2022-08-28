@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
+import { IAdmin } from 'src/app/home/interfaces/admin';
+import { ILogin } from 'src/app/login/interfaces/ILogin';
 
 @Injectable({
   providedIn: 'root',
@@ -9,11 +11,11 @@ import firebase from 'firebase/compat/app';
 export class AuthService {
   constructor(private http: HttpClient, private auth: AngularFireAuth) {}
 
-  createUser(user: any): Promise<any> {
-    return this.auth.createUserWithEmailAndPassword(user.email, user.password);
+  createAdmin(admin: IAdmin): Promise<any> {
+    return this.auth.createUserWithEmailAndPassword(admin.email, admin.password);
   }
 
-  login(login: any): Promise<any> {
+  login(login: ILogin): Promise<any> {
     return this.auth.signInWithEmailAndPassword(login.email, login.password);
   }
 
@@ -21,7 +23,7 @@ export class AuthService {
     return this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-  logout(): Promise<any> {
+  logout(): Promise<void> {
     return this.auth.signOut();
   }
 }

@@ -11,14 +11,6 @@ import { UserService } from '../../services/user.service';
 import { AllTechsDialogComponent } from '../all-techs-dialog/all-techs-dialog.component';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
 
-export interface UserData {
-  name: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
-  salaryExpectation: number;
-}
-
 @Component({
   selector: 'app-list-user',
   templateUrl: './list-user.component.html',
@@ -34,8 +26,8 @@ export class ListUserComponent implements OnInit {
     'allTechs',
     'actions',
   ];
-  list: any;
-  dataSource!: MatTableDataSource<UserData>;
+  listUser!: User[];
+  dataSource!: MatTableDataSource<User>;
   loading: boolean = false;
 
   filter: string = "";
@@ -65,7 +57,7 @@ export class ListUserComponent implements OnInit {
     this.userService.list().subscribe((data) => {
       this.length = data.length;
 
-      this.list = data;
+      this.listUser = data;
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -94,7 +86,7 @@ export class ListUserComponent implements OnInit {
   private iterator() {
     const end = (this.pageIndex + 1) * this.pageSize;
     const start = this.pageIndex * this.pageSize;
-    const part = this.list.slice(start, end);
+    const part = this.listUser.slice(start, end);
     this.dataSource = new MatTableDataSource(part);
   }
 
@@ -114,12 +106,13 @@ export class ListUserComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.toastr.success('User deleted successfully!', 'Sucess!');
+        this.get();
       }
     });
   }
 
   openAllTechs(user: User) {
-    const dialogRef = this.dialog.open(AllTechsDialogComponent, {
+    this.dialog.open(AllTechsDialogComponent, {
       data: user,
     });
   }

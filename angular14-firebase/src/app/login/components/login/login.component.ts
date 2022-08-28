@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { LocalStorageUtils } from 'src/app/utils/localstorage';
-import { ILogin } from '../../models/ILogin';
+import { ILogin } from '../../interfaces/ILogin';
 import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
 

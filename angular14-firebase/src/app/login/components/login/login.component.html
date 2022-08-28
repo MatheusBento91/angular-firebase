@@ -35,7 +35,7 @@
         <button type="submit" [class.spinner]="loading" [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
           [disabled]="loginForm.invalid || loading" class="container__login__form container__login__button" mat-raised-button color="primary">Login</button>
 
-        <button type="button" class="container__login__form container__login__button-google" mat-raised-button (click)="loginWithGoogle()">
+        <button type="button" class="container__login__form container__login__button" mat-raised-button (click)="loginWithGoogle()">
           <img src="../../../../assets/img/icons8-google-logo-48.png" height="35" alt="Login with Google"/> Login with Google
         </button>
       </form>
