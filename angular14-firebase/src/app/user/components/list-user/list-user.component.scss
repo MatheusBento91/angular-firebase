@@ -16,7 +16,12 @@
   height: 45px;
 }
 
-@media screen and (max-width: 960px) {
+.mat-column-email {
+  flex: none;
+  width: 350px;
+}
+
+@media screen and (max-width: 1200px) {
   .container {
     margin: unset;
   }
@@ -33,6 +38,11 @@
   .filter {
     margin-left: 20px;
     width: 90%;
+  }
+
+  .mat-column-email {
+    flex: unset;
+    width: unset;
   }
 
   .mat-table {

@@ -16,7 +16,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { User } from '../../interfaces/user';
 import { AllTechs } from '../../interfaces/all-techs';
-import { DevelopersLevels } from '../../enum/developers-levels.enum';
+import { DevelopersLevel } from '../../enum/developers-level.enum';
 
 @Component({
   selector: 'app-edit-user',
@@ -30,7 +30,7 @@ export class EditUserComponent implements OnInit {
   id: string;
   loading: boolean = false;
   principalStackEnum = PrincipalStack;
-  developersLevelsEnum = DevelopersLevels;
+  developersLevelsEnum = DevelopersLevel;
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
   techCtrl = new FormControl('');

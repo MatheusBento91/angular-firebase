@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
+import { DevelopersLevel } from 'src/app/user/enum/developers-level.enum';
 import { PrincipalStack } from 'src/app/user/enum/principal-stack.enum';
 import { UserService } from 'src/app/user/services/user.service';
 
@@ -33,7 +34,7 @@ export class UserDashboardComponent implements OnInit {
   };
 
   //pie
-  public pieChartLabels = ['0 5k', '5k 10k', '10k 15k', '15k 20k', '20k >'];
+  public pieChartLabels = [DevelopersLevel.JUNIOR, DevelopersLevel.MIDLEVEL, DevelopersLevel.SENIOR, DevelopersLevel.SPECIALIST, DevelopersLevel.TECHLEAD];
   public pieChartDatasets: any = [
     {
       data: [],
@@ -48,13 +49,14 @@ export class UserDashboardComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.getUsersStack();
+    this.getUsersPrincipalStack();
+    this.getUsersLevel();
     this.getUsersSalary();
   }
 
   doughnutChartClicked(e: any) {}
 
-  getUsersStack() {
+  getUsersPrincipalStack() {
     this.userService.get().subscribe((data) => {
       let fullStack: number = 0;
       let backEnd: number = 0;
@@ -112,6 +114,65 @@ export class UserDashboardComponent implements OnInit {
         ];
 
       this.doughnutChartDatasets = doughnutChartDatasets;
+      this.loading = false;
+    });
+  }
+
+  getUsersLevel() {
+    this.userService.get().subscribe((data) => {
+      let junior: number = 0;
+      let midLevel: number = 0;
+      let senior: number = 0;
+      let specialist: number = 0;
+      let techLead: number = 0;
+
+      data.forEach((item: any) => {
+        switch (item.level) {
+          case DevelopersLevel.JUNIOR:
+            junior++;
+            break;
+          case DevelopersLevel.MIDLEVEL:
+            midLevel++;
+            break;
+          case DevelopersLevel.SENIOR:
+            senior++;
+            break;
+          case DevelopersLevel.SPECIALIST:
+            specialist++;
+            break;
+          case DevelopersLevel.TECHLEAD:
+            techLead++;
+            break;
+        }
+      });
+
+      this.pieChartDatasets = [
+        {
+          data: [junior, midLevel, senior, specialist, techLead],
+          backgroundColor: [
+            '#DC7633',
+            '#16A085',
+            '#95A5A6',
+            '#2196F3',
+            '#AF7AC5',
+          ],
+          hoverBackgroundColor: [
+            '#A04000',
+            '#0E6655',
+            '#717D7E',
+            '#01579B',
+            '#76448A',
+          ],
+          hoverBorderColor: [
+            '#A04000',
+            '#0E6655',
+            '#717D7E',
+            '#01579B',
+            '#76448A',
+          ],
+        },
+      ];
+
       this.loading = false;
     });
   }
@@ -415,14 +476,6 @@ export class UserDashboardComponent implements OnInit {
         devOps.forEach((element: any, index) => {
           devOps[index] = element / devOpsCounter[index];
         });
-
-        const pieChartDatasets = [
-          {
-            data: fullStackCounter,
-          },
-        ];
-
-        this.pieChartDatasets = pieChartDatasets;
 
         const barChartData: ChartConfiguration<'bar'>['data'] = {
           labels: ['0 5k', '5k 10k', '10k 15k', '15k 20k', '20k >'],

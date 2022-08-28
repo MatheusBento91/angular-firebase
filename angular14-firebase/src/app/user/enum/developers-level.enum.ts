@@ -1,4 +1,4 @@
-export enum DevelopersLevels {
+export enum DevelopersLevel {
   JUNIOR = "Junior",
   MIDLEVEL = "Mid-Level",
   SENIOR = "Senior",

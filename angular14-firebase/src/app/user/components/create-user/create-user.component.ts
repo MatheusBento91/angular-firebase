@@ -14,7 +14,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { PrincipalStack } from '../../enum/principal-stack.enum';
-import { DevelopersLevels } from '../../enum/developers-levels.enum';
+import { DevelopersLevel } from '../../enum/developers-level.enum';
 import { AllTechs } from '../../interfaces/all-techs';
 import { User } from '../../interfaces/user';
 
@@ -28,7 +28,7 @@ export class CreateUserComponent implements OnInit {
   userForm!: FormGroup;
   loading: boolean = false;
   principalStackEnum = PrincipalStack;
-  developersLevelsEnum = DevelopersLevels;
+  developersLevelsEnum = DevelopersLevel;
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
   techCtrl = new FormControl('');
