@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AccessDeniedComponent } from '../components/access-denied/access-denied.component';
-import { NotFoundComponent } from '../components/not-found/not-found.component';
-import { ProgressBarComponent } from '../components/progress-bar/progress-bar.component';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';

@@ -10,10 +10,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full'},
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard] },
-
   { path: 'access-denied', component: AccessDeniedComponent},
   { path: '**', component: NotFoundComponent},
-
 ];
 
 @NgModule({

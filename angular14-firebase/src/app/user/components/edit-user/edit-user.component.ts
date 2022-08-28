@@ -9,7 +9,7 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map, Observable, startWith } from 'rxjs';
-import { PrincipalStack } from '../../interfaces/principal-stack.enum';
+import { PrincipalStack } from '../../enum/principal-stack.enum';
 import { UserService } from '../../services/user.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';

@@ -15,7 +15,7 @@ export class UserService {
 
   constructor(private afs: AngularFirestore) {}
 
-  list(): Observable<User[]> {
+  get(): Observable<User[]> {
     return this.afs
       .collection<any>('Users')
       .valueChanges({ idField: 'id' })
@@ -24,17 +24,17 @@ export class UserService {
       );
   }
 
-  create(user: User): Promise<any> {
-    const usersRef = this.afs.collection('Users');
-    return usersRef.add({ ...user });
-  }
-
   getById(id: string): Observable<User> {
     return this.afs
       .collection<any>('Users')
       .doc(id)
       .valueChanges()
       .pipe(take(1));
+  }
+
+  create(user: User): Promise<any> {
+    const usersRef = this.afs.collection('Users');
+    return usersRef.add({ ...user });
   }
 
   update(id: string, user: User): Promise<any> {

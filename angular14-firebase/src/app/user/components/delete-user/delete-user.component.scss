@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  min-width: 250px;
+
+  &__footer {
+    margin-top: 1.5rem;
+  }
+}
