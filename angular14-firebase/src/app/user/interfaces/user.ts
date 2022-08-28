@@ -5,7 +5,8 @@ export interface User {
   email: string,
   phoneNumber: string,
   salaryExpectation: number,
-  principalStack: number,
+  principalStack: string,
+  level: string,
   technologies: Technologies[];
 }
 
