@@ -52,9 +52,7 @@ export class UserDashboardComponent implements OnInit {
     this.getUsersSalary();
   }
 
-  doughnutChartClicked(e: any) {
-    console.log(e);
-  }
+  doughnutChartClicked(e: any) {}
 
   getUsersStack() {
     this.userService.list().subscribe((data) => {
@@ -398,35 +396,25 @@ export class UserDashboardComponent implements OnInit {
           }
         });
 
-        fullStack[0] = fullStack[0] / fullStackCounter[0];
-        fullStack[1] = fullStack[1] / fullStackCounter[1];
-        fullStack[2] = fullStack[2] / fullStackCounter[2];
-        fullStack[3] = fullStack[3] / fullStackCounter[3];
-        fullStack[4] = fullStack[4] / fullStackCounter[4];
+        fullStack.forEach((element: any, index) => {
+          fullStack[index] = element / fullStackCounter[index];
+        });
 
-        backEnd[0] = backEnd[0] / backEndCounter[0];
-        backEnd[1] = backEnd[1] / backEndCounter[1];
-        backEnd[2] = backEnd[2] / backEndCounter[2];
-        backEnd[3] = backEnd[3] / backEndCounter[3];
-        backEnd[4] = backEnd[4] / backEndCounter[4];
+        backEnd.forEach((element: any, index) => {
+          backEnd[index] = element / backEndCounter[index];
+        });
 
-        frontEnd[0] = frontEnd[0] / frontEndCounter[0];
-        frontEnd[1] = frontEnd[1] / frontEndCounter[1];
-        frontEnd[2] = frontEnd[2] / frontEndCounter[2];
-        frontEnd[3] = frontEnd[3] / frontEndCounter[3];
-        frontEnd[4] = frontEnd[4] / frontEndCounter[4];
+        frontEnd.forEach((element: any, index) => {
+          frontEnd[index] = element / frontEndCounter[index];
+        });
 
-        mobile[0] = mobile[0] / mobileCounter[0];
-        mobile[1] = mobile[1] / mobileCounter[1];
-        mobile[2] = mobile[2] / mobileCounter[2];
-        mobile[3] = mobile[3] / mobileCounter[3];
-        mobile[4] = mobile[4] / mobileCounter[4];
+        mobile.forEach((element: any, index) => {
+          mobile[index] = element / mobileCounter[index];
+        });
 
-        devOps[0] = devOps[0] / devOpsCounter[0];
-        devOps[1] = devOps[1] / devOpsCounter[1];
-        devOps[2] = devOps[2] / devOpsCounter[2];
-        devOps[3] = devOps[3] / devOpsCounter[3];
-        devOps[4] = devOps[4] / devOpsCounter[4];
+        devOps.forEach((element: any, index) => {
+          devOps[index] = element / devOpsCounter[index];
+        });
 
         const pieChartDatasets = [
           {

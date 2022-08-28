@@ -3,14 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { IAdmin } from '../../interfaces/admin';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
   hide = true;
   adminForm!: FormGroup;
 
@@ -22,10 +22,10 @@ export class AdminComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.createLoginForm();
+    this.createAdminForm();
   }
 
-  createLoginForm() {
+  createAdminForm() {
     this.adminForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: [
@@ -40,18 +40,16 @@ export class AdminComponent implements OnInit {
   }
 
   save() {
-    const userForm : any = this.adminForm.getRawValue();
-    this._authService.createUser(userForm).then( () => {
-      this.toastr.success('Create admin successfully!', 'Sucess!');
-      this.router.navigate(['/home']);
-    },
-    (error) => {
-      this.toastr.error('Email or password is invalid!', 'Invalid data!');
-      throw new Error(error);
-    });
-
-    //this.router.navigate(['/home'])
+    const adminForm: IAdmin = this.adminForm.getRawValue();
+    this._authService.createAdmin(adminForm).then(
+      () => {
+        this.toastr.success('Create admin successfully!', 'Sucess!');
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        this.toastr.error('Email or password is invalid!', 'Invalid data!');
+        throw new Error(error);
+      }
+    );
   }
-
-
 }
