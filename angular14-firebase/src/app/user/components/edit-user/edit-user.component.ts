@@ -9,13 +9,13 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { map, Observable, startWith } from 'rxjs';
-import { PrincipalStack } from '../../models/principal-stack.enum';
+import { PrincipalStack } from '../../interfaces/principal-stack.enum';
 import { UserService } from '../../services/user.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { User } from '../../models/user';
-import { AllTechs } from '../../models/all-techs';
+import { User } from '../../interfaces/user';
+import { AllTechs } from '../../interfaces/all-techs';
 
 @Component({
   selector: 'app-edit-user',

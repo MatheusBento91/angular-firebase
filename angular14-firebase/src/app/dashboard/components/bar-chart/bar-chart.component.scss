@@ -7,8 +7,8 @@
   .bar-chart {
     min-height: unset;
     min-width: unset;
-    max-height: 300px;
-    max-width: 600px;
+    width: 650px !important;
+    height: 350px !important;
   }
 }
 
@@ -16,7 +16,7 @@
   .bar-chart {
     min-height: unset;
     min-width: unset;
-    max-height: 300px;
-    max-width: 300px;
+    width: 350px !important;
+    height: 300px !important;
   }
 }

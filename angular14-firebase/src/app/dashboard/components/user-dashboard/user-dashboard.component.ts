@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { PrincipalStack } from 'src/app/user/models/principal-stack.enum';
+import { PrincipalStack } from 'src/app/user/interfaces/principal-stack.enum';
 import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
