@@ -14,32 +14,34 @@ export class UserDashboardComponent implements OnInit {
 
   //doughnut
   public doughnutChartLabels: string[] = [
-    'Full stack',
-    'Back-End',
-    'Front-End',
-    'Mobile',
-    'DevOps',
+    PrincipalStack.FULLTSACK,
+    PrincipalStack.BACKEND,
+    PrincipalStack.FRONTEND,
+    PrincipalStack.MOBILE,
+    PrincipalStack.DEVOPS,
   ];
 
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] =
     [];
 
-  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
-    responsive: false,
-  };
-
-  //bar
-  public barChartData: ChartConfiguration<'bar'>['data'] = {
-    datasets: [],
-  };
-
   //pie
-  public pieChartLabels = [DevelopersLevel.JUNIOR, DevelopersLevel.MIDLEVEL, DevelopersLevel.SENIOR, DevelopersLevel.SPECIALIST, DevelopersLevel.TECHLEAD];
+  public pieChartLabels = [
+    DevelopersLevel.JUNIOR,
+    DevelopersLevel.MIDLEVEL,
+    DevelopersLevel.SENIOR,
+    DevelopersLevel.SPECIALIST,
+    DevelopersLevel.TECHLEAD,
+  ];
   public pieChartDatasets: any = [
     {
       data: [],
     },
   ];
+
+  //bar
+  public barChartData: ChartConfiguration<'bar'>['data'] = {
+    datasets: [],
+  };
 
   //bar salary range
   public barChartSalaryRangeData: ChartConfiguration<'bar'>['data'] = {
@@ -191,7 +193,7 @@ export class UserDashboardComponent implements OnInit {
         let devOps: any[] = [];
         let devOpsCounter: any[] = [];
 
-        data.forEach((item: any) => {
+        data.forEach((item: any, index) => {
           switch (item.principalStack) {
             case PrincipalStack.FULLTSACK:
               if (item.salaryExpectation < 5000) {
@@ -297,6 +299,7 @@ export class UserDashboardComponent implements OnInit {
                   backEndCounter[4] = backEndCounter[4] + 1;
                 else backEndCounter[4] = 1;
               }
+
               break;
             case PrincipalStack.FRONTEND:
               if (item.salaryExpectation < 5000) {
@@ -349,6 +352,7 @@ export class UserDashboardComponent implements OnInit {
                   frontEndCounter[4] = frontEndCounter[4] + 1;
                 else frontEndCounter[4] = 1;
               }
+
               break;
             case PrincipalStack.MOBILE:
               if (item.salaryExpectation < 5000) {
@@ -401,6 +405,7 @@ export class UserDashboardComponent implements OnInit {
                   mobileCounter[4] = mobileCounter[4] + 1;
                 else mobileCounter[4] = 1;
               }
+
               break;
             case PrincipalStack.DEVOPS:
               if (item.salaryExpectation < 5000) {
@@ -453,6 +458,7 @@ export class UserDashboardComponent implements OnInit {
                   devOpsCounter[4] = devOpsCounter[4] + 1;
                 else devOpsCounter[4] = 1;
               }
+
               break;
           }
         });

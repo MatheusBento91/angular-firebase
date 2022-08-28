@@ -10,8 +10,11 @@ export class DoughnutChartComponent implements OnInit {
 
   @Input() doughnutChartLabels: string [] = [];
   @Input() doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [];
-  @Input() doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = { };
   @Output() chartClick = new EventEmitter();
+
+  public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {
+    responsive: false,
+  };
 
   constructor() { }
 
