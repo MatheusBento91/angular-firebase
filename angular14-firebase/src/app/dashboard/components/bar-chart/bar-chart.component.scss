@@ -1,0 +1,22 @@
+.bar-chart {
+  min-height: 400px;
+  min-width: 800px;
+}
+
+@media (min-width: 601px) and (max-width: 992px) {
+  .bar-chart {
+    min-height: unset;
+    min-width: unset;
+    max-height: 300px;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .bar-chart {
+    min-height: unset;
+    min-width: unset;
+    max-height: 300px;
+    max-width: 300px;
+  }
+}
