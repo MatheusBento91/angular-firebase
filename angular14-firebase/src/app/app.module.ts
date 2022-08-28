@@ -10,7 +10,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { LoginComponent } from './login/components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from './shared/shared/shared.module';
+import { SharedModule } from './shared/shared.module';
 import { AuthService } from './services/auth/auth.service';
 
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';

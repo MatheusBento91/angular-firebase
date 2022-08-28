@@ -10,11 +10,10 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { filter, map, Observable, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { user } from '@angular/fire/auth';
-import { PrincipalStack } from '../../interfaces/principal-stack.enum';
+import { PrincipalStack } from '../../enum/principal-stack.enum';
 import { AllTechs } from '../../interfaces/all-techs';
 
 @Component({

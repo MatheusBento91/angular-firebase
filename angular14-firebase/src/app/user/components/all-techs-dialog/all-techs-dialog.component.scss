@@ -6,18 +6,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &__content {
+    width: 100% !important;
+    text-align: center;
+  }
+
+  &__btn {
+    margin-top: 1rem;
+    width: 75%;
+  }
 }
 
-.content {
-  width: 100% !important;
-  text-align: center  ;
-}
-
-.btn {
-  margin-top: 1rem;
-  width: 75%;
-}
-
-h1, h2 {
+h1,
+h2 {
   margin-top: 0.5rem;
 }

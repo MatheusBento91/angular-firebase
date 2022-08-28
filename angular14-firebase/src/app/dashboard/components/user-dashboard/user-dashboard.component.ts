@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
-import { PrincipalStack } from 'src/app/user/interfaces/principal-stack.enum';
+import { PrincipalStack } from 'src/app/user/enum/principal-stack.enum';
 import { UserService } from 'src/app/user/services/user.service';
 
 @Component({
@@ -55,7 +55,7 @@ export class UserDashboardComponent implements OnInit {
   doughnutChartClicked(e: any) {}
 
   getUsersStack() {
-    this.userService.list().subscribe((data) => {
+    this.userService.get().subscribe((data) => {
       let fullStack: number = 0;
       let backEnd: number = 0;
       let frontEnd: number = 0;
@@ -117,7 +117,7 @@ export class UserDashboardComponent implements OnInit {
   }
 
   getUsersSalary() {
-    this.userService.list().subscribe((data) => {
+    this.userService.get().subscribe((data) => {
       if (data) {
         let fullStack: any[] = [];
         let fullStackCounter: any[] = [];

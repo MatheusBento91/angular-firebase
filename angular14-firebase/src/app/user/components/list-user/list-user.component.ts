@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PrincipalStack } from '../../interfaces/principal-stack.enum';
+import { PrincipalStack } from '../../enum/principal-stack.enum';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
 import { AllTechsDialogComponent } from '../all-techs-dialog/all-techs-dialog.component';
@@ -54,7 +54,7 @@ export class ListUserComponent implements OnInit {
 
   get() {
     this.loading = true;
-    this.userService.list().subscribe((data) => {
+    this.userService.get().subscribe((data) => {
       this.length = data.length;
 
       this.listUser = data;
@@ -105,8 +105,8 @@ export class ListUserComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.toastr.success('User deleted successfully!', 'Sucess!');
         this.get();
+        this.toastr.success('User deleted successfully!', 'Sucess!');
       }
     });
   }
