@@ -4,8 +4,8 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { map, Observable, take } from 'rxjs';
-import { User } from '../models/user';
+import { Observable, take } from 'rxjs';
+import { User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root',

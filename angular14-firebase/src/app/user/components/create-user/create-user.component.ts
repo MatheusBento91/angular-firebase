@@ -14,8 +14,8 @@ import { filter, map, Observable, startWith } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { user } from '@angular/fire/auth';
-import { PrincipalStack } from '../../models/principal-stack.enum';
-import { AllTechs } from '../../models/all-techs';
+import { PrincipalStack } from '../../interfaces/principal-stack.enum';
+import { AllTechs } from '../../interfaces/all-techs';
 
 @Component({
   selector: 'app-create-user',
