@@ -1,20 +1,32 @@
-<div *ngIf="!loading" class="container">
-  <mat-card class="container__card">
-    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
-      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
-  </mat-card>
-  <mat-card class="container__card">
-    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
-      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
-  </mat-card>
-  <mat-card class="container__card">
-    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
-      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
-  </mat-card>
-  <mat-card class="container__card">
-    <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
-      [doughnutChartOptions]="doughnutChartOptions" (chartClick)="chartClicked($event)"></app-doughnut-chart>
-  </mat-card>
-</div>
+<section *ngIf="!loading" class="container">
+  <div class="container__all-row">
+    <mat-card class="container__card">
+      <h3>Average developers salary</h3>
+      <app-bar-chart class="container__bar-chart" [barChartData]="barChartData"></app-bar-chart>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card class="container__card">
+      <h3>All Developers</h3>
+      <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
+        [doughnutChartOptions]="doughnutChartOptions" (chartClick)="doughnutChartClicked($event)"></app-doughnut-chart>
+    </mat-card>
+  </div>
+
+  <div>
+    <mat-card class="container__card">
+      <h3>Salary range from full stack</h3>
+      <app-pie-chart [pieChartLabels]="pieChartLabels" [pieChartDatasets]="pieChartDatasets"></app-pie-chart>
+    </mat-card>
+  </div>
+
+  <div class="container__all-row">
+    <mat-card class="container__card">
+      <h3>Salary range from devs</h3>
+      <app-bar-chart class="container__bar-chart" [barChartData]="barChartSalaryRangeData"></app-bar-chart>
+    </mat-card>
+  </div>
+</section>
 
 <app-progress-bar *ngIf="loading"></app-progress-bar>
