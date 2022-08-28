@@ -16,6 +16,7 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { User } from '../../interfaces/user';
 import { AllTechs } from '../../interfaces/all-techs';
+import { DevelopersLevel } from '../../enum/developers-level.enum';
 
 @Component({
   selector: 'app-edit-user',
@@ -29,6 +30,7 @@ export class EditUserComponent implements OnInit {
   id: string;
   loading: boolean = false;
   principalStackEnum = PrincipalStack;
+  developersLevelsEnum = DevelopersLevel;
 
   separatorKeysCodes: number[] = [ENTER, COMMA];
   techCtrl = new FormControl('');
@@ -74,6 +76,7 @@ export class EditUserComponent implements OnInit {
       ],
       salaryExpectation: ['', [Validators.required]],
       principalStack: ['', Validators.required],
+      level: ['', Validators.required],
       technologies: this.fb.array([]),
     });
 
@@ -84,6 +87,7 @@ export class EditUserComponent implements OnInit {
       phoneNumber: this.user.phoneNumber,
       salaryExpectation: this.user.salaryExpectation,
       principalStack: this.user.principalStack,
+      level: this.user.level,
       technologies: [],
     });
 
@@ -106,7 +110,7 @@ export class EditUserComponent implements OnInit {
       );
     });
 
-    const userForm: any = this.userForm.getRawValue();
+    const userForm: User = this.userForm.getRawValue();
     this._userService.update(this.id, userForm).then(
       () => {
         this.loading = false;

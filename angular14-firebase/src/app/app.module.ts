@@ -20,6 +20,10 @@ import { ThemeService } from './services/theme/theme.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgChartsModule } from 'ng2-charts';
 
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from "@angular/common";
+registerLocaleData(localePt);
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -52,6 +56,10 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     AuthService,
     ThemeService,
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    {
+      provide: LOCALE_ID,
+      useValue: 'pt-BR',
+    },
   ],
   bootstrap: [AppComponent],
 })

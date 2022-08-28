@@ -50,6 +50,17 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
+      <mat-label>Level</mat-label>
+      <mat-select formControlName="level">
+        <mat-option value="{{developersLevelsEnum.JUNIOR}}">Junior</mat-option>
+        <mat-option value="{{developersLevelsEnum.MIDLEVEL}}">Mid-Level</mat-option>
+        <mat-option value="{{developersLevelsEnum.SENIOR}}">Senior</mat-option>
+        <mat-option value="{{developersLevelsEnum.SPECIALIST}}">Specialist</mat-option>
+        <mat-option value="{{developersLevelsEnum.TECHLEAD}}">Tech-Lead</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
       <mat-label>Principal stack</mat-label>
       <mat-select formControlName="principalStack">
         <mat-option value="{{principalStackEnum.FULLTSACK}}">Full Stack</mat-option>

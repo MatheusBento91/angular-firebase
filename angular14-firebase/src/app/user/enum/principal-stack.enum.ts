@@ -1,5 +1,5 @@
 export enum PrincipalStack {
-  FULLTSACK = "Full Stack",
+  FULLTSACK = "Full-Stack",
   BACKEND = "Back-End",
   FRONTEND = "Front-End",
   MOBILE = "Mobile",

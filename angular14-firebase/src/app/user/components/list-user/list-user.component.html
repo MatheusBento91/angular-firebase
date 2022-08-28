@@ -22,16 +22,20 @@
         <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="phoneNumber">
+      <!-- <ng-container matColumnDef="phoneNumber">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
         <mat-cell *matCellDef="let row" data-label="Phone number"> {{row.phoneNumber | mask: '(00) 0 0000-0000'}}
         </mat-cell>
-      </ng-container>
+      </ng-container> -->
 
       <ng-container matColumnDef="salaryExpectation">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Salary expectation </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Salary expectation"> {{row.salaryExpectation | mask: 'separator.2':'.'
-          }} </mat-cell>
+        <mat-cell *matCellDef="let row" data-label="Salary expectation"> {{row.salaryExpectation | currency:'BRL' }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="level">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Level </mat-header-cell>
+        <mat-cell *matCellDef="let row" data-label="Level"> {{row.level}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="principalStack">

@@ -5,7 +5,6 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { PrincipalStack } from '../../enum/principal-stack.enum';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
 import { AllTechsDialogComponent } from '../all-techs-dialog/all-techs-dialog.component';
@@ -20,9 +19,9 @@ export class ListUserComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
     'email',
-    'phoneNumber',
     'salaryExpectation',
     'principalStack',
+    'level',
     'allTechs',
     'actions',
   ];
@@ -34,9 +33,8 @@ export class ListUserComponent implements OnInit {
   length = 0;
   pageSize = 5;
   pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
+  pageSizeOptions = [5, 10, 25, 50, 75, 100];
   showFirstLastButtons = true;
-  principalStack = PrincipalStack;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
