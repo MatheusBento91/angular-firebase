@@ -10,7 +10,7 @@
     <mat-card class="container__card">
       <h3>Developers from principal stack</h3>
       <app-doughnut-chart [doughnutChartLabels]="doughnutChartLabels" [doughnutChartDatasets]="doughnutChartDatasets"
-        [doughnutChartOptions]="doughnutChartOptions" (chartClick)="doughnutChartClicked($event)"></app-doughnut-chart>
+        (chartClick)="doughnutChartClicked($event)"></app-doughnut-chart>
     </mat-card>
   </div>
 
