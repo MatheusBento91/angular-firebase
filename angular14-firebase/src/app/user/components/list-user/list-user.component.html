@@ -1,15 +1,15 @@
 <div class="container" *ngIf="!loading">
 
-  <div class="header">
-    <button class="btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
+  <div class="container__header">
+    <button class="container__btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
   </div>
 
-  <mat-form-field class="filter" appearance="standard">
+  <mat-form-field class="container__filter" appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
 
-  <div class="example-container mat-elevation-z8">
+  <div class="mat-elevation-z8">
     <mat-table mat-table [dataSource]="dataSource">
 
       <ng-container matColumnDef="name">

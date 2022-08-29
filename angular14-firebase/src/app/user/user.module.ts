@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NgxMaskModule } from 'ngx-mask';
 import { AllTechsDialogComponent } from './components/all-techs-dialog/all-techs-dialog.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 
 
@@ -19,7 +20,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CreateUserComponent,
     EditUserComponent,
     DeleteUserComponent,
-    AllTechsDialogComponent
+    AllTechsDialogComponent,
+    UserFormComponent
   ],
   imports: [
     CommonModule,
