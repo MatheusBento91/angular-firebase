@@ -1,19 +1,19 @@
 .container {
   margin: 35px 50px 35px 35px;
-}
 
-.filter {
-  width: 100%;
-}
+  &__filter {
+    width: 100%;
+  }
 
-.header {
-  display: flex;
-  justify-content: end;
-}
+  &__header {
+    display: flex;
+    justify-content: end;
+  }
 
-.btn {
-  width: 250px;
-  height: 45px;
+  &__btn {
+    width: 250px;
+    height: 45px;
+  }
 }
 
 .mat-column-email {
@@ -24,20 +24,20 @@
 @media screen and (max-width: 1200px) {
   .container {
     margin: unset;
-  }
 
-  .header {
-    margin-top: 1rem;
-    justify-content: center;
-  }
+    &__header {
+      margin-top: 1rem;
+      justify-content: center;
+    }
 
-  .btn {
-    width: 90%;
-  }
+    &__btn {
+      width: 90%;
+    }
 
-  .filter {
-    margin-left: 20px;
-    width: 90%;
+    &__filter {
+      margin-left: 20px;
+      width: 90%;
+    }
   }
 
   .mat-column-email {
@@ -76,18 +76,19 @@
     font-size: 1em;
     font-weight: 800;
     text-align: right;
-    height:30px;
+    height: 30px;
     margin-bottom: 4%;
     margin-left: 4%;
     margin-right: 4%;
   }
+
   .mat-table .mat-cell:before {
     content: attr(data-label);
     float: left;
     text-transform: uppercase;
     font-weight: normal;
 
-    font-size: .85em;
+    font-size: 0.85em;
   }
 
   .mat-table .mat-cell:last-child {
