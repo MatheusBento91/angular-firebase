@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./edit-user.component.scss'],
 })
 export class EditUserComponent {
-  title: string = "Create user";
+  title: string = "Edit user";
+  buttonLabel: string = "Edit";
 }

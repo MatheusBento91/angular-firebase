@@ -25,6 +25,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 })
 export class UserFormComponent implements OnInit {
   @Input() title: string = '';
+  @Input() buttonLabel: string = '';
 
   hide = true;
   userForm!: FormGroup;
