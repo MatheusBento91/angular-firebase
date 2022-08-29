@@ -3,7 +3,7 @@
 <p>Project architecture based on feature modules using lazy loading.</p>
 <p>Using Angular Material and Material design, which is a design system created by Google.</p>
 <p>All app is responsive design.</p>
-<p>Working with Sass and using display grid or display flex in scss</p>
+<p>Working with Sass with BEM pattern and using display grid or display flex in scss</p>
 <p>Using RXJS and its operators</p>
 <p>For animations i use the library animate.css its very simple and create a greate exprience.</p>
 <p>Reactive forms pattern for create forms and validated they.</p>
@@ -12,7 +12,6 @@
 <p>Using ngx-mask for using mask in inputs.</p>
 <p>Project with light and dark mode theme using angular material and RXJS for control state of theme.</p>
 <p>Now the login with Google and if i want could be with Microsoft or GitHub, etc...</p>
-<p>Refactoring scss to use BEM pattern.</p>
 <p>To create a dashboard i used ng2-charts which is directives for chart.js.</p>
 
 <h2> Application environment </h2>
