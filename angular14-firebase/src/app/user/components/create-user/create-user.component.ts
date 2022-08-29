@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class CreateUserComponent {
   title: string = "Create user";
+  buttonLabel: string = "Create";
 }

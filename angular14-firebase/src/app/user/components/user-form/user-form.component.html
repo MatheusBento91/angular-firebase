@@ -95,6 +95,6 @@
 
     <button class="container__btn" type="submit" [class.spinner]="loading"
       [ngClass]="userForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-      [disabled]="userForm.invalid || loading" mat-raised-button color="primary"> Create </button>
+      [disabled]="userForm.invalid || loading" mat-raised-button color="primary"> {{ buttonLabel }} </button>
   </form>
 </div>
