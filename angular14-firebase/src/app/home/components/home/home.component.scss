@@ -1,6 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Lato:300:400);
 
-.example-container {
+.container {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -8,15 +8,38 @@
   bottom: 0;
   left: 0;
   right: 0;
-}
 
-.example-spacer {
-  flex: 1 1 auto;
-}
+  &__spacer {
+    flex: 1 1 auto;
+  }
 
-.example-is-mobile .example-toolbar {
-  position: fixed;
-  z-index: 2;
+  &__is-mobile &__toolbar {
+    position: fixed;
+    z-index: 2;
+  }
+
+  &__nav-name {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 13px;
+  }
+
+  &__sidenav-container {
+    flex: 1;
+  }
+
+  &__is-mobile &__sidenav-container {
+    flex: 1 0 auto;
+  }
+
+  &__icon-sidenav {
+    margin-right: 10px;
+  }
+
+  &__admin-email {
+    font-size: 15px;
+  }
 }
 
 h2 {
@@ -24,35 +47,15 @@ h2 {
   text-align: center;
 }
 
-.nav-name {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  letter-spacing: 2px;
-  font-size: 13px;
-}
-
-.example-sidenav-container {
-  flex: 1;
-}
-
-.example-is-mobile .example-sidenav-container {
-  flex: 1 0 auto;
-}
-
-.icon-sidenav {
-  margin-right: 10px;
-}
-
-.admin-email {
-  font-size: 15px;
-}
-
 mat-sidenav {
   min-width: 200px;
 }
 
 @media (max-width: 600px) {
-  .app-name {
-    display: none;
+  .container {
+    &__app-name {
+      display: none;
+    }
   }
+
 }
