@@ -33,7 +33,7 @@ export class ListUserComponent implements OnInit {
   length = 0;
   pageSize = 5;
   pageIndex = 0;
-  pageSizeOptions = [5, 10, 25, 50, 75, 100];
+  pageSizeOptions = [5, 10, 25, 50];
   showFirstLastButtons = true;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
