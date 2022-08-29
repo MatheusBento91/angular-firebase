@@ -1,11 +1,11 @@
-<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar color="primary" class="example-toolbar">
+<div class="container" [class.container__is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="container__toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="example-spacer"></span>
-    <h3 class="app-name">Open recruiter</h3>
-    <span class="example-spacer"></span>
+    <span class="container__spacer"></span>
+    <h3 class="container__app-name">Open recruiter</h3>
+    <span class="container__spacer"></span>
     <mat-slide-toggle [labelPosition]="'after'" [checked]="isDarkTheme$ | async"
       (change)="toggleDarkTheme($event.checked)">
       <mat-icon>{{ isDarkIcon ? 'light_mode' : 'dark_mode' }}</mat-icon>
@@ -25,12 +25,13 @@
     </mat-menu>
   </mat-toolbar>
 
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+  <mat-sidenav-container class="container__sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
     <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a class="nav-name" mat-list-item routerLink="{{ nav.RouterLink }}" (click)="snav.toggle()" *ngFor="let nav of listSideNav">
-          <mat-icon color="primary" class="icon-sidenav">{{ nav.Icon }}</mat-icon> {{ nav.Name }}
+        <a class="container__nav-name" mat-list-item routerLink="{{ nav.RouterLink }}" (click)="snav.toggle()"
+          *ngFor="let nav of listSideNav">
+          <mat-icon color="primary" class="container__icon-sidenav">{{ nav.Icon }}</mat-icon> {{ nav.Name }}
         </a>
       </mat-nav-list>
     </mat-sidenav>
