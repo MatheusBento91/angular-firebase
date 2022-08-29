@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { User } from '../../interfaces/user';
+import { IUser } from '../../interfaces/IUser';
 import { UserService } from '../../services/user.service';
 import { AllTechsDialogComponent } from '../all-techs-dialog/all-techs-dialog.component';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
@@ -25,8 +25,8 @@ export class ListUserComponent implements OnInit {
     'allTechs',
     'actions',
   ];
-  listUser!: User[];
-  dataSource!: MatTableDataSource<User>;
+  listUser!: IUser[];
+  dataSource!: MatTableDataSource<IUser>;
   loading: boolean = false;
 
   filter: string = "";
@@ -92,11 +92,11 @@ export class ListUserComponent implements OnInit {
     this.router.navigate(['home/user/create-user']);
   }
 
-  editUser(user: User) {
+  editUser(user: IUser) {
     this.router.navigate([`home/user/edit-user/${user.id}`]);
   }
 
-  deleteUser(user: User) {
+  deleteUser(user: IUser) {
     const dialogRef = this.dialog.open(DeleteUserComponent, {
       data: user,
     });
@@ -109,7 +109,7 @@ export class ListUserComponent implements OnInit {
     });
   }
 
-  openAllTechs(user: User) {
+  openAllTechs(user: IUser) {
     this.dialog.open(AllTechsDialogComponent, {
       data: user,
     });

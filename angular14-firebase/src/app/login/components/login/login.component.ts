@@ -58,8 +58,7 @@ export class LoginComponent implements OnInit {
         }
       })
       .catch((error) => {
-        this.toastr.error('Email or password is invalid!', 'Invalid data!');
-        this.loading = false;
+        this.handlerError();
         throw new Error(error);
       });
   }
@@ -73,8 +72,7 @@ export class LoginComponent implements OnInit {
         }
       })
       .catch((error) => {
-        this.toastr.error('Email or password is invalid!', 'Invalid data!');
-        this.loading = false;
+        this.handlerError();
         throw new Error(error);
       });
   }
@@ -87,6 +85,11 @@ export class LoginComponent implements OnInit {
 
     this.toastr.success('Login successfully!', 'Sucess!');
     this.router.navigate(['/home']);
+    this.loading = false;
+  }
+
+  handlerError() {
+    this.toastr.error('Email or password is invalid!', 'Invalid data!');
     this.loading = false;
   }
 }

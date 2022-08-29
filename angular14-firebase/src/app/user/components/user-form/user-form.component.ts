@@ -15,7 +15,7 @@ import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { User } from '../../interfaces/user';
+import { IUser } from '../../interfaces/IUser';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 @Component({
@@ -39,7 +39,7 @@ export class UserFormComponent implements OnInit {
   techs: string[] = [];
   allTechs: string[] = AllTechs;
 
-  user: User;
+  user: IUser;
   id: string;
 
   @ViewChild('techInput') techInput!: ElementRef<HTMLInputElement>;
@@ -121,7 +121,7 @@ export class UserFormComponent implements OnInit {
   }
 
   create() {
-    const userForm: User = this.userForm.getRawValue();
+    const userForm: IUser = this.userForm.getRawValue();
 
     this._userService.create(userForm).then(
       () => {
@@ -138,7 +138,7 @@ export class UserFormComponent implements OnInit {
   }
 
   update() {
-    const userForm: User = this.userForm.getRawValue();
+    const userForm: IUser = this.userForm.getRawValue();
 
     this._userService.update(this.id, userForm).then(
       () => {
