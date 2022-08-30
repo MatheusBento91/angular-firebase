@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth/auth.service';
-import { IAdmin } from '../../interfaces/admin';
+import { IAdmin } from '../../interfaces/IAdmin';
 
 @Component({
   selector: 'app-admin',

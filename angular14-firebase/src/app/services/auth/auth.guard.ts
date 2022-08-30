@@ -3,16 +3,14 @@ import { CanActivate, Router } from '@angular/router';
 import { LocalStorageUtils } from '../../utils/localstorage';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-
   constructor(private router: Router) {}
 
   localStorageUtils = new LocalStorageUtils();
 
-  canActivate():  boolean {
-
+  canActivate(): boolean {
     if (this.localStorageUtils.getUserToken()) {
       return true;
     }
@@ -20,5 +18,4 @@ export class AuthGuard implements CanActivate {
     this.router.navigate(['/access-denied']);
     return false;
   }
-
 }

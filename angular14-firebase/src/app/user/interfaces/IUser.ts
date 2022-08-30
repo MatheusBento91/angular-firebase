@@ -1,4 +1,4 @@
-export interface User {
+export interface IUser {
   id: string,
   name: string,
   lastName: string,
@@ -7,10 +7,10 @@ export interface User {
   salaryExpectation: number,
   principalStack: string,
   level: string,
-  technologies: Technologies[];
+  technologies: ITechnologies[];
 }
 
-export interface Technologies {
+export interface ITechnologies {
   id: number,
   tech: string
 }
