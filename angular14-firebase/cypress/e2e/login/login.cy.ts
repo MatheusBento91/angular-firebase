@@ -14,7 +14,7 @@ describe('doing login in the app', () => {
     cy.contains('h2', 'Login');
   });
 
-  it('doing a valid login', () => {
+  it('successfully login', () => {
     cy.get('#hide-button').click();
     cy.get('#password').clear().type('123456').should('have.value', '123456');
     cy.get('#login-button').click();
