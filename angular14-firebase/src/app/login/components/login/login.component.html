@@ -1,14 +1,13 @@
 <div class="container">
-
   <div class="container__login animate__animated animate__bounceInDown">
     <mat-card>
       <h2 class="container__login__title">Login</h2>
       <img class="form img animate__animated animate__flipInX animate__delay-1s"
-        src="../../../assets/img/support _ girl.png" alt="User img"  width="150px">
+        src="../../../assets/img/support _ girl.png" alt="User img" width="150px">
       <form [formGroup]="loginForm" (submit)="login()">
         <mat-form-field appearance="outline" class="container__login__form">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="user@yourdomian.com" formControlName="email" autocomplete="off">
+          <input id="email" matInput placeholder="user@yourdomian.com" formControlName="email" autocomplete="off">
           <mat-icon matSuffix color="primary">email</mat-icon>
           <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
           <mat-error *ngIf="!loginForm.get('email')?.hasError('required') && loginForm.get('email')?.hasError('email')">
@@ -17,9 +16,9 @@
 
         <mat-form-field appearance="outline" class="container__login__form">
           <mat-label>Password</mat-label>
-          <input formControlName="password" autocomplete="off" matInput [type]="hide ? 'password' : 'text'"
-            placeholder="Password">
-          <button type="button" b mat-icon-button matSuffix color="primary" (click)="hide = !hide"
+          <input id="password" formControlName="password" autocomplete="off" matInput
+            [type]="hide ? 'password' : 'text'" placeholder="Password">
+          <button id="hide-button" type="button" b mat-icon-button matSuffix color="primary" (click)="hide = !hide"
             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
@@ -32,11 +31,14 @@
             Password must be a maximum of 12 characters</mat-error>
         </mat-form-field>
 
-        <button type="submit" [class.spinner]="loading" [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
-          [disabled]="loginForm.invalid || loading" class="container__login__form container__login__button" mat-raised-button color="primary">Login</button>
+        <button id="login-button" type="submit" [class.spinner]="loading"
+          [ngClass]="loginForm.invalid? '' : 'animate__animated animate__pulse animate__repeat-3'"
+          [disabled]="loginForm.invalid || loading" class="container__login__form container__login__button"
+          mat-raised-button color="primary">Login</button>
 
-        <button type="button" class="container__login__form container__login__button" mat-raised-button (click)="loginWithGoogle()">
-          <img src="../../../../assets/img/google-icon.png" height="35" alt="Login with Google"/> Login with Google
+        <button type="button" class="container__login__form container__login__button" mat-raised-button
+          (click)="loginWithGoogle()">
+          <img src="../../../../assets/img/google-icon.png" height="35" alt="Login with Google" /> Login with Google
         </button>
       </form>
     </mat-card>

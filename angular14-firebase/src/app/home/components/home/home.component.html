@@ -1,20 +1,20 @@
 <div class="container" [class.container__is-mobile]="mobileQuery.matches">
   <mat-toolbar color="primary" class="container__toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
+    <button id="menu-button" mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="container__spacer"></span>
     <h3 class="container__app-name">Open recruiter</h3>
     <span class="container__spacer"></span>
-    <mat-slide-toggle [labelPosition]="'after'" [checked]="isDarkTheme$ | async"
+    <mat-slide-toggle id="mat-toggle-theme" [labelPosition]="'after'" [checked]="isDarkTheme$ | async"
       (change)="toggleDarkTheme($event.checked)">
       <mat-icon>{{ isDarkIcon ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </mat-slide-toggle>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+    <button id="more-vert-button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="logOut()">
+      <button id="log-out-button" mat-menu-item (click)="logOut()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
       </button>
