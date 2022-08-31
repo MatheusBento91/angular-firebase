@@ -1,4 +1,4 @@
-<h1> Angular 14 - Firebase</h1>
+<h1> Angular 14 - Angular material - Firebase - Cypress</h1>
 <p>This is a project created with Angular in the version 14. </p>
 <p>Project architecture based on feature modules using lazy loading.</p>
 <p>Using Angular Material and Material design, which is a design system created by Google.</p>
