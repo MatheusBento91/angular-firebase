@@ -1,79 +1,93 @@
 <div class="container" *ngIf="!loading">
 
-  <div class="container__header">
+  <header class="container__header">
+    <mat-form-field appearance="outline" class="container__filterByEmail">
+      <mat-label>Filter by email</mat-label>
+      <input #filterEmailInput matInput (keyup.enter)="getByEmail(filterEmailInput.value)" id="filterEmailInput" type="email" placeholder="user@gmail.com" autocomplete="off">
+      <mat-error *ngIf="1 != 1">Password is required</mat-error>
+      <button id="filterEmailButton" [class.spinner]="loadingFilter" type="button" b mat-icon-button matSuffix color="primary"
+        (click)="getByEmail(filterEmailInput.value)">
+        <mat-icon>{{ loadingFilter? '' : 'search' }}</mat-icon>
+      </button>
+    </mat-form-field>
+
     <button class="container__btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
-  </div>
+  </header>
 
-  <mat-form-field class="container__filter" appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-  </mat-form-field>
+  <main>
+    <mat-form-field class="container__filter" appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput [(ngModel)]="filter" (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
 
-  <div class="mat-elevation-z8">
-    <mat-table mat-table [dataSource]="dataSource">
+    <div class="mat-elevation-z8">
+      <mat-table mat-table [dataSource]="dataSource">
 
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+        </ng-container>
 
-      <!-- <ng-container matColumnDef="phoneNumber">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Phone number"> {{row.phoneNumber | mask: '(00) 0 0000-0000'}}
-        </mat-cell>
-      </ng-container> -->
+        <!-- <ng-container matColumnDef="phoneNumber">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Phone number </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Phone number"> {{row.phoneNumber | mask: '(00) 0 0000-0000'}}
+          </mat-cell>
+        </ng-container> -->
 
-      <ng-container matColumnDef="salaryExpectation">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Salary expectation </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Salary expectation"> {{row.salaryExpectation | currency:'BRL' }} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="salaryExpectation">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Salary expectation </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Salary expectation"> {{row.salaryExpectation | currency:'BRL' }}
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="level">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Level </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Level"> {{row.level}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="level">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Level </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Level"> {{row.level}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="principalStack">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Principal stack </mat-header-cell>
-        <mat-cell *matCellDef="let row" data-label="Principal stack"> {{row.principalStack}} </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="principalStack">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Principal stack </mat-header-cell>
+          <mat-cell *matCellDef="let row" data-label="Principal stack"> {{row.principalStack}} </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="allTechs">
-        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> All techs </mat-header-cell>
-        <mat-cell mat-cell *matCellDef="let row" data-label="All techs">
-          <button mat-icon-button color="primary" (click)="openAllTechs(row)">
-            <mat-icon>open_in_new</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="allTechs">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> All techs </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let row" data-label="All techs">
+            <button mat-icon-button color="primary" (click)="openAllTechs(row)">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
 
-      <ng-container matColumnDef="actions">
-        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
-        <mat-cell mat-cell *matCellDef="let row" data-label="Actions">
-          <button mat-icon-button color="primary" (click)="editUser(row)">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" (click)="deleteUser(row)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-cell>
-      </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+          <mat-cell mat-cell *matCellDef="let row" data-label="Actions">
+            <button mat-icon-button color="primary" (click)="editUser(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteUser(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: displayedColumns;">
-      </mat-row>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
 
-    </mat-table>
+      </mat-table>
 
-    <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
-      [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex">
-    </mat-paginator>
-  </div>
+      <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
+        [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex">
+      </mat-paginator>
+    </div>
+  </main>
+
 </div>
 
 <app-progress-bar *ngIf="loading"></app-progress-bar>

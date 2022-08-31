@@ -4,7 +4,7 @@ import {
   AngularFirestoreCollection,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { Observable, take } from 'rxjs';
+import { filter, find, map, Observable, take } from 'rxjs';
 import { IUser } from '../interfaces/IUser';
 
 @Injectable({
@@ -28,6 +28,12 @@ export class UserService {
       .doc(id)
       .valueChanges()
       .pipe(take(1));
+  }
+
+  getByEmail(email: string): Observable<IUser[]> {
+    return this.get().pipe(
+      map((users) => users.filter((user) => user.email == email))
+    );
   }
 
   create(user: IUser): Promise<any> {

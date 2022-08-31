@@ -28,8 +28,9 @@ export class ListUserComponent implements OnInit {
   listUser!: IUser[];
   dataSource!: MatTableDataSource<IUser>;
   loading: boolean = false;
+  loadingFilter: boolean = false;
 
-  filter: string = "";
+  filter: string = '';
   length = 0;
   pageSize = 5;
   pageIndex = 0;
@@ -47,22 +48,37 @@ export class ListUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loading = true;
     this.get();
   }
 
   get() {
-    this.loading = true;
     this.userService.get().subscribe((data) => {
-      this.length = data.length;
-
-      this.listUser = data;
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
-      this.iterator();
-
+      this.handlerTable(data);
       this.loading = false;
+      this.loadingFilter = false;
     });
+  }
+
+  getByEmail(email: any) {
+    this.loadingFilter = true;
+    if (email == '') {
+      this.get();
+    } else {
+      this.userService.getByEmail(email).subscribe((data) => {
+        this.handlerTable(data);
+        this.loadingFilter = false;
+      });
+    }
+  }
+
+  handlerTable(data: IUser[]) {
+    this.length = data.length;
+    this.listUser = data;
+    this.dataSource = new MatTableDataSource(data);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    this.iterator();
   }
 
   applyFilter(event: Event) {
@@ -77,7 +93,7 @@ export class ListUserComponent implements OnInit {
   handlePageEvent(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;
-    this.filter = "";
+    this.filter = '';
     this.iterator();
   }
 
