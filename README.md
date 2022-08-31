@@ -13,6 +13,7 @@
 <p>Project with light and dark mode theme using angular material and RXJS for control state of theme.</p>
 <p>Now the login with Google and if i want could be with Microsoft or GitHub, etc...</p>
 <p>To create a dashboard i used ng2-charts which is directives for chart.js.</p>
+<p>Cypress in the house! For create a e2e test in all the app.</p>
 
 <h2> Application environment </h2>
 <h4> https://angular14-firebase.web.app/ <h4>
