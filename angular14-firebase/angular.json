@@ -112,6 +112,41 @@
             "firebaseProject": "angular14-firebase",
             "firebaseHostingSite": "angular14-firebase"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "angular14-firebase:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular14-firebase:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular14-firebase:serve:production"
+            }
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular14-firebase:serve:production"
+            }
+          }
         }
       }
     }
