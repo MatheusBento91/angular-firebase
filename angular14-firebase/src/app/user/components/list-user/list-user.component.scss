@@ -7,12 +7,17 @@
 
   &__header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+  }
+
+  &__filterByEmail {
+    width: 35%;
   }
 
   &__btn {
     width: 250px;
     height: 45px;
+    margin-top: 8px;
   }
 }
 
@@ -28,6 +33,13 @@
     &__header {
       margin-top: 1rem;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 8px;
+    }
+
+    &__filterByEmail {
+      width: 90%;
     }
 
     &__btn {
