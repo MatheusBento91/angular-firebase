@@ -7,7 +7,6 @@
 <p>Using RXJS and its operators</p>
 <p>For animations i use the library animate.css its very simple and create a greate exprience.</p>
 <p>Reactive forms pattern for create forms and validated they.</p>
-<p>GitFlow concepts, creating a development branch and working from there and creating the branches for each feature. </p>
 <p>Using ngx-toastr for a better notifications for users.</p>
 <p>Using ngx-mask for using mask in inputs.</p>
 <p>Project with light and dark mode theme using angular material and RXJS for control state of theme.</p>
