@@ -4,7 +4,7 @@
 <p>Using Angular Material and Material design, which is a design system created by Google.</p>
 <p>All app is responsive design.</p>
 <p>Working with Sass using BEM pattern and using display grid or display flex in scss.</p>
-<p>Using RXJS and its operators</p>
+<p>Using RXJS and its operators.</p>
 <p>For animations i use the library animate.css its very simple and create a greate exprience.</p>
 <p>Reactive forms pattern for create forms and validated they.</p>
 <p>Using ngx-toastr for a better notifications for users.</p>
