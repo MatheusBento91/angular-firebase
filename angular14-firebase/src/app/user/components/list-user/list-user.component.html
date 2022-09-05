@@ -3,14 +3,14 @@
   <header class="container__header">
     <mat-form-field appearance="outline" class="container__filterByEmail">
       <mat-label>Filter by email</mat-label>
-      <input #filterEmailInput matInput (keyup.enter)="getByEmail(filterEmailInput.value)" id="filterEmailInput" type="email" placeholder="user@gmail.com" autocomplete="off">
-      <mat-error *ngIf="1 != 1">Password is required</mat-error>
-      <button id="filterEmailButton" [class.spinner]="loadingFilter" type="button" b mat-icon-button matSuffix color="primary"
-        (click)="getByEmail(filterEmailInput.value)">
+      <input #filterEmailInput matInput (keyup.enter)="getByEmail(filterEmailInput.value)" id="filterEmailInput"
+        [formControl]="email" type="email" placeholder="user@gmail.com" autocomplete="off">
+      <mat-error *ngIf="email?.hasError('email')">Pleas, inform a valid email.</mat-error>
+      <button id="filterEmailButton" [class.spinner]="loadingFilter" type="button" mat-icon-button matSuffix
+        color="primary" (click)="getByEmail(filterEmailInput.value)">
         <mat-icon>{{ loadingFilter? '' : 'search' }}</mat-icon>
       </button>
     </mat-form-field>
-
     <button class="container__btn" (click)="registerUser()" mat-raised-button color="primary">Create user</button>
   </header>
 
