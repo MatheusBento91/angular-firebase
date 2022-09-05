@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -37,6 +38,8 @@ export class ListUserComponent implements OnInit {
   pageSizeOptions = [5, 10, 25, 50];
   showFirstLastButtons = true;
 
+  email = new FormControl('', Validators.email);
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -60,7 +63,9 @@ export class ListUserComponent implements OnInit {
     });
   }
 
-  getByEmail(email: any) {
+  getByEmail(email: string) {
+    if (this.email.getError('email')) return;
+
     this.loadingFilter = true;
     if (email == '') {
       this.get();
