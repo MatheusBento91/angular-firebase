@@ -10,7 +10,13 @@
     justify-content: space-between;
   }
 
-  &__filterByEmail {
+  &__dont-find {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__filter-by-email {
     width: 35%;
   }
 
@@ -38,7 +44,7 @@
       margin-bottom: 8px;
     }
 
-    &__filterByEmail {
+    &__filter-by-email {
       width: 90%;
     }
 

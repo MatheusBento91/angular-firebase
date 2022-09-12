@@ -1,7 +1,7 @@
 <div class="container" *ngIf="!loading">
 
   <header class="container__header">
-    <mat-form-field appearance="outline" class="container__filterByEmail">
+    <mat-form-field appearance="outline" class="container__filter-by-email">
       <mat-label>Filter by email</mat-label>
       <input #filterEmailInput matInput (keyup.enter)="getByEmail(filterEmailInput.value)" id="filterEmailInput"
         [formControl]="email" type="email" placeholder="user@gmail.com" autocomplete="off">
@@ -21,7 +21,7 @@
     </mat-form-field>
 
     <div class="mat-elevation-z8">
-      <mat-table mat-table [dataSource]="dataSource">
+      <mat-table *ngIf="length > 0" mat-table [dataSource]="dataSource">
 
         <ng-container matColumnDef="name">
           <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
@@ -82,10 +82,13 @@
 
       </mat-table>
 
+      <p class="container__dont-find" *ngIf="length == 0">Sorry, there is no user with that email.</p>
+
       <mat-paginator (page)="handlePageEvent($event)" [length]="length" [pageSize]="pageSize"
         [showFirstLastButtons]="showFirstLastButtons" [pageSizeOptions]="pageSizeOptions" [pageIndex]="pageIndex">
       </mat-paginator>
     </div>
+
   </main>
 
 </div>
