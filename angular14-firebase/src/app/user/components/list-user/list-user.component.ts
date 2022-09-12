@@ -17,6 +17,9 @@ import { DeleteUserComponent } from '../delete-user/delete-user.component';
   styleUrls: ['./list-user.component.scss'],
 })
 export class ListUserComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
   displayedColumns: string[] = [
     'name',
     'email',
@@ -40,9 +43,6 @@ export class ListUserComponent implements OnInit {
 
   email = new FormControl('', Validators.email);
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-
   constructor(
     private router: Router,
     private userService: UserService,
@@ -56,11 +56,16 @@ export class ListUserComponent implements OnInit {
   }
 
   get() {
-    this.userService.get().subscribe((data) => {
-      this.handlerTable(data);
-      this.loading = false;
-      this.loadingFilter = false;
-    });
+    this.userService.get().subscribe(
+      (data) => {
+        this.handlerTable(data);
+        this.loading = false;
+        this.loadingFilter = false;
+      },
+      (error) => {
+        this.handlerError(error);
+      }
+    );
   }
 
   getByEmail(email: string) {
@@ -73,6 +78,9 @@ export class ListUserComponent implements OnInit {
       this.userService.getByEmail(email).subscribe((data) => {
         this.handlerTable(data);
         this.loadingFilter = false;
+      },
+      (error) => {
+        this.handlerError(error);
       });
     }
   }
@@ -84,6 +92,13 @@ export class ListUserComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.iterator();
+  }
+
+  handlerError(error: string) {
+    const splitError = error.toString().split(':');
+    this.toastr.error(splitError[1], splitError[0])
+    this.loading = false;
+    this.loadingFilter = false;
   }
 
   applyFilter(event: Event) {
