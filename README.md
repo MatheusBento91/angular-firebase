@@ -1,18 +1,27 @@
-<h1> Angular 14 - Angular material - Firebase - Cypress</h1>
-<p>This is a project created with Angular in the version 14. </p>
-<p>Project architecture based on feature modules using lazy loading.</p>
-<p>Using Angular Material and Material design, which is a design system created by Google.</p>
-<p>All app is responsive design.</p>
-<p>Working with Sass using BEM pattern and using display grid or display flex in scss.</p>
-<p>Using RXJS and its operators.</p>
-<p>For animations i use the library animate.css its very simple and create a greate exprience.</p>
-<p>Reactive forms pattern for create forms and validated they.</p>
-<p>Using ngx-toastr for a better notifications for users.</p>
-<p>Using ngx-mask for using mask in inputs.</p>
-<p>Project with light and dark mode theme using angular material and RXJS for control state of theme.</p>
-<p>Now the login with Google and if i want could be with Microsoft or GitHub, etc...</p>
-<p>To create a dashboard i used ng2-charts which is directives for chart.js.</p>
-<p>Cypress in the house! For create a e2e test in all the app.</p>
+# Angular14Firebase
 
-<h2> Application environment </h2>
-<h4> https://angular14-firebase.web.app/ <h4>
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
