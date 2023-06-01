@@ -1,27 +1,45 @@
-# AngularFirebase
+## Table of contents
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+## General info
+This is a project created with Angular 14 - Angular material and Firebase.
 
-## Development server
+You can make login with your Google account and navigate in 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Aplication use this link: https://angular14-firebase.web.app
 
-## Code scaffolding
+Features in this project:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Lazy loading routes
+- Login with Google
+- Auth guard
+- Ligth and dark mode 
+- Responsive in perfect pixel
+- Table with pagination and filter
+- Dashboard using ng2-charts
+- Animations with animate.css
+- Implement multiples components of Angular material
 
-## Build
+## Technologies
+Project is created with:
+* Angular - Typescript - Rxjs
+* Angular material - Firebase
+* HTML5 - CSS3 - SASS - Flexbox
+* Cypress - jasmine
+	
+## Setup
+To run this project, install it locally using npm:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+$ npm install
+$ ng serve
+```
 
-## Running unit tests
+To run the e2e tests with cypress use:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+$ ng serve
+$ ng e2e
+```
